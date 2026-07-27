@@ -102,6 +102,26 @@ export const ATTACK_TABLES = [
   { id: "area", label: "Area Spells", file: "area-spells.html", folder: "attacks", kind: "attack" }
 ];
 
+/**
+ * NPC attack types: one choice sets the usual hit chart + default crit table.
+ * Crit can still vary by weapon/special — this is the common pairing.
+ */
+export const NPC_ATTACK_TYPES = [
+  { key: "edged", label: "Edged", table: "edged", crit: "cut" },
+  { key: "blunt", label: "Blunt", table: "blunt", crit: "impact" },
+  { key: "missile", label: "Missile", table: "missile", crit: "pierce" },
+  { key: "unarmed", label: "Unarmed", table: "unarmed", crit: "impact" },
+  { key: "beast", label: "Beast", table: "beast_atk", crit: "beast" },
+  { key: "grapple", label: "Grapple", table: "unarmed", crit: "grapple" },
+  { key: "bolt", label: "Bolt", table: "bolt", crit: "fire" },
+  { key: "area", label: "Area", table: "area", crit: "fire" }
+];
+
+/** @param {string} key */
+export function getNpcAttackType(key) {
+  return NPC_ATTACK_TYPES.find((t) => t.key === key) ?? null;
+}
+
 /** All openable tables (crits + attacks). */
 export function allTables() {
   return [...CRITICAL_TABLES, ...ATTACK_TABLES];

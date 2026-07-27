@@ -7,6 +7,8 @@ import { CriticalBrowser, openCriticalTableById } from "./module/apps/critical-b
 import { SYSTEM_ID, getStatusEffects } from "./module/config.mjs";
 import { registerHandlebarsHelpers } from "./module/helpers.mjs";
 import { registerBestiary, maybeAutoImportBestiary } from "./module/bestiary.mjs";
+import { registerMerpBestiary, maybeAutoImportMerpBestiary } from "./module/merp-bestiary.mjs";
+import { remindWoundsOnTurn, injectWoundBadge } from "./module/wounds.mjs";
 
 Hooks.once("init", () => {
   console.log(`${SYSTEM_ID} | Initializing Against the Darkmaster (Simple)`);
@@ -21,6 +23,7 @@ Hooks.once("init", () => {
   registerOpenEndedDie();
   registerHandlebarsHelpers();
   registerBestiary();
+  registerMerpBestiary();
 
   foundry.documents.collections.Actors.registerSheet(SYSTEM_ID, CharacterSheet, {
     types: ["character"],
@@ -49,6 +52,7 @@ Hooks.once("init", () => {
 Hooks.once("ready", async () => {
   console.log(`${SYSTEM_ID} | Ready`);
   await maybeAutoImportBestiary();
+  await maybeAutoImportMerpBestiary();
 });
 
 Hooks.on("getSceneControlButtons", (controls) => {
@@ -96,6 +100,15 @@ Hooks.on("renderChatMessage", (message, html) => {
       openCriticalTableById(btn.dataset.table);
     });
   });
+});
+
+/** Turn-start wound reminder (bleed / penalty totals only). */
+Hooks.on("combatTurnChange", (combat) => {
+  if (combat?.combatant) remindWoundsOnTurn(combat.combatant);
+});
+
+Hooks.on("renderTokenHUD", (hud, html) => {
+  injectWoundBadge(hud, html);
 });
 
 /**

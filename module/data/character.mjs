@@ -106,6 +106,18 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
       customSkills: new SchemaField(buildCustomSkillsSchema()),
       spellLores: new SchemaField(buildSpellSchema()),
 
+      /** Known spells — reference list; casting rolls use the linked lore total. */
+      spells: new ArrayField(
+        new SchemaField({
+          name: new StringField({ required: true, blank: true, initial: "" }),
+          lore: new StringField({ required: true, blank: true, initial: "" }),
+          level: new NumberField({ required: true, integer: true, initial: 0, min: 0 }),
+          mp: new NumberField({ required: true, integer: true, initial: 0, min: 0 }),
+          notes: new StringField({ required: true, blank: true, initial: "" })
+        }),
+        { initial: [] }
+      ),
+
       pools: new SchemaField({
         hp: new SchemaField({
           value: new NumberField({ required: true, integer: true, initial: 20 }),

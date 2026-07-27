@@ -13,8 +13,21 @@
   {{#if table}}
   <div class="roll-actions">
     <button type="button" class="open-crit-table" data-table="{{table}}">
-      <i class="fas fa-book-dead"></i> Open {{table}} table
+      <i class="fas fa-shield-halved"></i> Hit: {{tableLabel}}
+    </button>
+    {{#if crit}}
+    <button type="button" class="open-crit-table" data-table="{{crit}}">
+      <i class="fas fa-book-dead"></i> Crit: {{critLabel}}
+    </button>
+    {{/if}}
+  </div>
+  {{else}}
+  {{#if crit}}
+  <div class="roll-actions">
+    <button type="button" class="open-crit-table" data-table="{{crit}}">
+      <i class="fas fa-book-dead"></i> Crit: {{critLabel}}
     </button>
   </div>
+  {{/if}}
   {{/if}}
 </div>

@@ -9,7 +9,8 @@
       "combat": "Combat",
       "magic": "Magic",
       "notes": "Notes",
-      "stats": "Stat Block"
+      "stats": "Stat Block",
+      "npcCombat": "Combat"
     },
     "Roll": {
       "modTitle": "Roll Modifier",
@@ -31,7 +32,8 @@
       "hitChartsHint": "Attack results by armor (NA / LA / MA / HA)",
       "critCharts": "Critical Strikes",
       "openHitCharts": "Hit Charts",
-      "allTables": "All Tables"
+      "allTables": "All Tables",
+      "severityHint": "Roll d100 with VsD crit severity modifier (Sup +0 … Let +50). Look up the total on the table yourself."
     },
     "Conditions": {
       "bruised": "Bruised",
@@ -84,6 +86,21 @@
       "alreadyImported": "Bestiary already imported for this world.",
       "loadFailed": "Could not load bestiary data.",
       "importResult": "Bestiary import: {created} created, {updated} updated, {skipped} skipped."
+    },
+    "MerpBestiary": {
+      "autoImport": "Auto-import MERP creatures",
+      "autoImportHint": "When enabled, creates NPC actors from the MERP CE ST-2 conversion into an Actor folder named MERP. Off by default.",
+      "importMenu": "Import MERP Creatures",
+      "importButton": "Import MERP",
+      "importNew": "Import (skip existing)",
+      "importForce": "Import & update existing",
+      "cancel": "Cancel",
+      "importHint": "Create (or refresh) NPC actors converted from MERP Collector's Edition ST-2 into an Actor folder named MERP.",
+      "copyrightHint": "MERP stats are ICE copyright — for private use with books you own.",
+      "gmOnly": "Only a GM can import MERP creatures.",
+      "alreadyImported": "MERP creatures already imported for this world.",
+      "loadFailed": "Could not load MERP creature data.",
+      "importResult": "MERP import: {created} created, {updated} updated, {skipped} skipped."
     }
   }
 }

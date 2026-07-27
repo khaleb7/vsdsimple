@@ -47,50 +47,40 @@
             <tr>
               <th>HPs</th>
               <td class="hp-cell">
-                <input name="system.hp.value" type="number" value="{{system.hp.value}}" title="Current" />
+                <span class="boxed readonly" title="Current">{{system.hp.value}}</span>
                 <span>/</span>
-                <input name="system.hp.max" type="number" value="{{system.hp.max}}" title="Max" />
+                <span class="boxed readonly" title="Max">{{system.hp.max}}</span>
+                <span class="hint inline-hint">Edit on Combat</span>
               </td>
             </tr>
+            {{#each attackSlots as |atk|}}
             <tr>
               <th>
-                {{#unless derived.attacks.first.empty}}
-                <a class="roll-label" data-action="rollAttack" data-slot="first">1st Atk</a>
+                {{#unless atk.empty}}
+                <a class="roll-label" data-action="rollAttack" data-slot="{{atk.slot}}">{{atk.heading}}</a>
                 {{else}}
-                1st Atk
+                {{atk.heading}}
                 {{/unless}}
               </th>
               <td class="atk-cell">
-                <input name="system.attacks.first.bonus" type="number" value="{{system.attacks.first.bonus}}" placeholder="+" />
-                <input name="system.attacks.first.label" type="text" value="{{system.attacks.first.label}}" placeholder="Medium Claw" />
+                <div class="atk-main">
+                  <input name="system.attacks.{{atk.slot}}.bonus" type="number" value="{{atk.bonus}}" placeholder="+" />
+                  <input name="system.attacks.{{atk.slot}}.label" type="text" value="{{atk.label}}" placeholder="{{atk.placeholder}}" />
+                </div>
+                <div class="atk-type-row">
+                  <select name="system.attacks.{{atk.slot}}.type" title="Attack type / tables">
+                    <option value="">Type…</option>
+                    {{#each atk.typeOptions as |opt|}}
+                    <option value="{{opt.key}}" {{#if opt.selected}}selected{{/if}}>{{opt.label}}</option>
+                    {{/each}}
+                  </select>
+                  {{#if atk.tablesHint}}
+                  <span class="atk-tables-hint">{{atk.tablesHint}}</span>
+                  {{/if}}
+                </div>
               </td>
             </tr>
-            <tr>
-              <th>
-                {{#unless derived.attacks.second.empty}}
-                <a class="roll-label" data-action="rollAttack" data-slot="second">2nd Atk</a>
-                {{else}}
-                2nd Atk
-                {{/unless}}
-              </th>
-              <td class="atk-cell">
-                <input name="system.attacks.second.bonus" type="number" value="{{system.attacks.second.bonus}}" placeholder="+" />
-                <input name="system.attacks.second.label" type="text" value="{{system.attacks.second.label}}" placeholder="—" />
-              </td>
-            </tr>
-            <tr>
-              <th>
-                {{#unless derived.attacks.third.empty}}
-                <a class="roll-label" data-action="rollAttack" data-slot="third">3rd Atk</a>
-                {{else}}
-                3rd Atk
-                {{/unless}}
-              </th>
-              <td class="atk-cell">
-                <input name="system.attacks.third.bonus" type="number" value="{{system.attacks.third.bonus}}" placeholder="+" />
-                <input name="system.attacks.third.label" type="text" value="{{system.attacks.third.label}}" placeholder="—" />
-              </td>
-            </tr>
+            {{/each}}
             <tr>
               <th>Special</th>
               <td><input name="system.special" type="text" value="{{system.special}}" /></td>
@@ -113,6 +103,67 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div class="tab form-page{{#if tabs.combat.active}} active{{/if}}" data-group="primary" data-tab="combat">
+        <div class="form-top-bar npc-combat-top">
+          <div class="hp-block">
+            <h3 class="form-section-title">Hit Points</h3>
+            <div class="hp-fields">
+              <label>
+                <span>Current</span>
+                <input class="boxed" type="number" name="system.hp.value" value="{{system.hp.value}}" />
+              </label>
+              <label>
+                <span>Max</span>
+                <input class="boxed" type="number" name="system.hp.max" value="{{system.hp.max}}" />
+              </label>
+            </div>
+          </div>
+          <div class="wounds-block">
+            <h3 class="form-section-title">Wounds</h3>
+            <div class="hp-fields">
+              <label><span>Bleed</span><span class="boxed readonly">{{derived.woundsBleed}}</span></label>
+              <label><span>Penalties</span><span class="boxed readonly">{{derived.woundsPenalty}}</span></label>
+            </div>
+          </div>
+        </div>
+
+        <section class="form-section">
+          <h3 class="form-section-title">Conditions</h3>
+          <p class="hint">Toggle on the actor/token. No automatic modifiers.</p>
+          <div class="conditions-grid">
+            {{#each statusEffects as |se|}}
+            <label class="condition-toggle{{#if se.active}} inEffect{{/if}}" data-action="toggleStatus" data-status-id="{{se.id}}" title="{{se.label}}">
+              <img src="{{se.img}}" alt="" width="20" height="20" />
+              <span>{{se.label}}</span>
+            </label>
+            {{/each}}
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h3 class="form-section-title">Injuries <a data-action="addWound" title="Add injury"><i class="fas fa-plus"></i></a></h3>
+          <p class="hint">Bleed / Penalties above are totals of the rows below.</p>
+          {{#if system.wounds.length}}
+          <div class="injury-line injury-header">
+            <span>Injury</span>
+            <span>Bleed</span>
+            <span>Pen</span>
+            <span>Notes</span>
+            <span></span>
+          </div>
+          {{/if}}
+          {{#each system.wounds as |w i|}}
+          <div class="injury-line">
+            <input type="text" name="system.wounds.{{i}}.name" value="{{w.name}}" placeholder="Injury" />
+            <input type="number" name="system.wounds.{{i}}.bleed" value="{{w.bleed}}" title="Bleed" placeholder="0" />
+            <input type="number" name="system.wounds.{{i}}.penalty" value="{{w.penalty}}" title="Penalty" placeholder="0" />
+            <input type="text" name="system.wounds.{{i}}.notes" value="{{w.notes}}" placeholder="Notes" />
+            <a data-action="deleteWound" data-index="{{i}}" title="Remove"><i class="fas fa-trash"></i></a>
+          </div>
+          {{/each}}
+        </section>
       </div>
 
       <div class="tab form-page{{#if tabs.notes.active}} active{{/if}}" data-group="primary" data-tab="notes">

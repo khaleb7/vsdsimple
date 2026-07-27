@@ -109,10 +109,12 @@ export async function openCriticalTable(table) {
  */
 export async function openCriticalTableById(tableId) {
   if (!tableId) return;
-  const normalized = String(tableId).toLowerCase().replace(/[^a-z0-9]/g, "");
+  const raw = String(tableId).toLowerCase().trim();
+  const normalized = raw.replace(/[^a-z0-9]/g, "");
   const tables = allTables();
   const table =
-    tables.find((t) => t.id === normalized) ||
+    tables.find((t) => t.id === raw) ||
+    tables.find((t) => t.id.replace(/_/g, "") === normalized) ||
     tables.find((t) => normalized.includes(t.id.replace(/_/g, ""))) ||
     tables.find((t) => t.label.toLowerCase().replace(/[^a-z]/g, "") === normalized);
   if (!table) {
@@ -231,6 +233,7 @@ class CriticalTableViewer extends HandlebarsApplicationMixin(ApplicationV2) {
     window: { resizable: true },
     actions: {
       rollLookup: CriticalTableViewer.#onRollLookup,
+      rollSeverity: CriticalTableViewer.#onRollSeverity,
       openHitCharts: CriticalTableViewer.#onOpenHitCharts,
       openCritCharts: CriticalTableViewer.#onOpenCritCharts,
       openBrowser: CriticalTableViewer.#onOpenBrowser
@@ -263,7 +266,14 @@ class CriticalTableViewer extends HandlebarsApplicationMixin(ApplicationV2) {
       table: this.table,
       content: this.tableHtml,
       isCritical: kind === "critical",
-      isAttack: kind === "attack"
+      isAttack: kind === "attack",
+      severities: [
+        { key: "Sup", label: "Sup", mod: 0 },
+        { key: "Lig", label: "Lig", mod: 10 },
+        { key: "Mod", label: "Mod", mod: 20 },
+        { key: "Gri", label: "Gri", mod: 30 },
+        { key: "Let", label: "Let", mod: 50 }
+      ]
     };
   }
 
@@ -305,6 +315,12 @@ class CriticalTableViewer extends HandlebarsApplicationMixin(ApplicationV2) {
 
   static async #onRollLookup() {
     await rollCriticalLookup(this.table.label);
+  }
+
+  static async #onRollSeverity(event, target) {
+    const severity = target.dataset.severity;
+    const mod = Number(target.dataset.mod) || 0;
+    await rollCriticalLookup(this.table.label, { severity, mod });
   }
 
   static async #onOpenHitCharts() {

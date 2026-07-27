@@ -3,7 +3,7 @@ import { SYSTEM_ID } from "./config.mjs";
 const BESTIARY_PATH = `systems/${SYSTEM_ID}/data/monsters/bestiary.json`;
 const FOLDER_NAME = "VsD Bestiary";
 const FLAG_KEY = "bestiaryVersion";
-const BESTIARY_VERSION = 1;
+const BESTIARY_VERSION = 2;
 
 /**
  * Register settings and hooks for importing the starter bestiary.

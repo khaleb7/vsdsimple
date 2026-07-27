@@ -17,15 +17,18 @@
       "attacks": {
         "first": {
           "bonus": 70,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "second": {
           "bonus": 50,
-          "label": "Ranged"
+          "label": "Ranged",
+          "type": "missile"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "",
@@ -54,15 +57,18 @@
       "attacks": {
         "first": {
           "bonus": 100,
-          "label": "Ranged"
+          "label": "Ranged",
+          "type": "missile"
         },
         "second": {
           "bonus": 90,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "third": {
           "bonus": 0,
-          "label": "Spells"
+          "label": "Spells",
+          "type": "bolt"
         }
       },
       "special": "Keen Senses, Immortal, Spells",
@@ -91,15 +97,18 @@
       "attacks": {
         "first": {
           "bonus": 65,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Spells",
@@ -128,15 +137,18 @@
       "attacks": {
         "first": {
           "bonus": 100,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "second": {
           "bonus": 75,
-          "label": "Ranged"
+          "label": "Ranged",
+          "type": "missile"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Varies",
@@ -165,15 +177,18 @@
       "attacks": {
         "first": {
           "bonus": 90,
-          "label": "Large Claw"
+          "label": "Large Claw",
+          "type": "beast"
         },
         "second": {
           "bonus": 80,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Night Sight, Hulking Brute, Feral Predator, Sun Cursed",
@@ -202,15 +217,18 @@
       "attacks": {
         "first": {
           "bonus": 95,
-          "label": "Large Grapple"
+          "label": "Large Grapple",
+          "type": "grapple"
         },
         "second": {
           "bonus": 100,
-          "label": "Large Bite"
+          "label": "Large Bite",
+          "type": "beast"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "",
@@ -239,15 +257,18 @@
       "attacks": {
         "first": {
           "bonus": 90,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "second": {
           "bonus": 80,
-          "label": "Large Claw"
+          "label": "Large Claw",
+          "type": "beast"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Stench of Decay, Tremendous Strength",
@@ -276,15 +297,18 @@
       "attacks": {
         "first": {
           "bonus": 90,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "second": {
           "bonus": 60,
-          "label": "Ranged"
+          "label": "Ranged",
+          "type": "missile"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Night Sight, Forgekin",
@@ -313,15 +337,18 @@
       "attacks": {
         "first": {
           "bonus": 100,
-          "label": "Large Bite"
+          "label": "Large Bite",
+          "type": "beast"
         },
         "second": {
           "bonus": 70,
-          "label": "Large Claw"
+          "label": "Large Claw",
+          "type": "beast"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Night Sight, Swoop Attack",
@@ -350,15 +377,18 @@
       "attacks": {
         "first": {
           "bonus": 175,
-          "label": "Colossal Bite"
+          "label": "Colossal Bite",
+          "type": "beast"
         },
         "second": {
           "bonus": 150,
-          "label": "Huge Claw"
+          "label": "Huge Claw",
+          "type": "beast"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Terrifying Presence, Elemental Resistance, Draconic Might, Heightened Senses, Ferocity, Overwhelming, Dragon\u2019s Breath",
@@ -387,15 +417,18 @@
       "attacks": {
         "first": {
           "bonus": 80,
-          "label": "Medium Claw"
+          "label": "Medium Claw",
+          "type": "beast"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Infected, Unliving, Darkvision",
@@ -424,15 +457,18 @@
       "attacks": {
         "first": {
           "bonus": 110,
-          "label": "Huge"
+          "label": "Huge",
+          "type": "edged"
         },
         "second": {
           "bonus": 70,
-          "label": "Huge Beak"
+          "label": "Huge Beak",
+          "type": "beast"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Swoop Attack, Overwhelming",
@@ -461,15 +497,18 @@
       "attacks": {
         "first": {
           "bonus": 25,
-          "label": "Small"
+          "label": "Small",
+          "type": "edged"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "",
@@ -498,15 +537,18 @@
       "attacks": {
         "first": {
           "bonus": 60,
-          "label": "Medium Claw"
+          "label": "Medium Claw",
+          "type": "beast"
         },
         "second": {
           "bonus": 60,
-          "label": "Medium Bite"
+          "label": "Medium Bite",
+          "type": "beast"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Pounce",
@@ -535,15 +577,18 @@
       "attacks": {
         "first": {
           "bonus": 75,
-          "label": "Large Grapple (x6)"
+          "label": "Large Grapple (x6)",
+          "type": "grapple"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Camouflage, Writhing Tentacles, Coiling Arms, Overwhelming,",
@@ -572,15 +617,18 @@
       "attacks": {
         "first": {
           "bonus": 120,
-          "label": "Large Trample"
+          "label": "Large Trample",
+          "type": "edged"
         },
         "second": {
           "bonus": 100,
-          "label": "Ranged"
+          "label": "Ranged",
+          "type": "missile"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Boulder, Overwhelming, Bestial",
@@ -609,15 +657,18 @@
       "attacks": {
         "first": {
           "bonus": 90,
-          "label": "Large Bite"
+          "label": "Large Bite",
+          "type": "beast"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Darkvision, Poison, Jump, Adherence",
@@ -646,15 +697,18 @@
       "attacks": {
         "first": {
           "bonus": 110,
-          "label": "Large Trample"
+          "label": "Large Trample",
+          "type": "edged"
         },
         "second": {
           "bonus": 90,
-          "label": "Medium Bite"
+          "label": "Medium Bite",
+          "type": "beast"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Darkvision, Cold Breath, Frightening",
@@ -683,15 +737,18 @@
       "attacks": {
         "first": {
           "bonus": 60,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "second": {
           "bonus": 45,
-          "label": "Ranged"
+          "label": "Ranged",
+          "type": "missile"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Night Sight, Flame Hardened, Sun Sensitivity",
@@ -720,15 +777,18 @@
       "attacks": {
         "first": {
           "bonus": 35,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Night Sight, Tough",
@@ -757,15 +817,18 @@
       "attacks": {
         "first": {
           "bonus": 30,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Unliving, Darkvision, Mindless, Undying",
@@ -794,15 +857,18 @@
       "attacks": {
         "first": {
           "bonus": 110,
-          "label": "Large Trample"
+          "label": "Large Trample",
+          "type": "edged"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Mindless, Unliving, Hardness, Overwhelming, Ageless Sentinel",
@@ -831,15 +897,18 @@
       "attacks": {
         "first": {
           "bonus": 50,
-          "label": "Large Horns"
+          "label": "Large Horns",
+          "type": "beast"
         },
         "second": {
           "bonus": 40,
-          "label": "Large Trample"
+          "label": "Large Trample",
+          "type": "edged"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "",
@@ -868,15 +937,18 @@
       "attacks": {
         "first": {
           "bonus": 100,
-          "label": "Large Bite"
+          "label": "Large Bite",
+          "type": "beast"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Night Sight, Depends on Variant",
@@ -905,15 +977,18 @@
       "attacks": {
         "first": {
           "bonus": 105,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Unliving, Darkvision, Sun Sensitivity, Corrupting Presence, Call of the Grave, Unholy Drain, Undying",
@@ -942,15 +1017,18 @@
       "attacks": {
         "first": {
           "bonus": 90,
-          "label": "Large Claw"
+          "label": "Large Claw",
+          "type": "beast"
         },
         "second": {
           "bonus": 80,
-          "label": "Weapon"
+          "label": "Weapon",
+          "type": "edged"
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "Night Sight, Hulking Brute, Feral Predator, Sun Cursed",
@@ -979,15 +1057,18 @@
       "attacks": {
         "first": {
           "bonus": 70,
-          "label": "Medium Bite"
+          "label": "Medium Bite",
+          "type": "beast"
         },
         "second": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         },
         "third": {
           "bonus": 0,
-          "label": ""
+          "label": "",
+          "type": ""
         }
       },
       "special": "",

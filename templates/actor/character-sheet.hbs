@@ -266,14 +266,24 @@
               {{/each}}
             </div>
             <div class="injuries-list">
-              <h4>Injuries <a data-action="addWound"><i class="fas fa-plus"></i></a></h4>
+              <h4>Injuries <a data-action="addWound" title="Add injury"><i class="fas fa-plus"></i></a></h4>
+              <p class="hint">Bleed / Penalties above are totals of the rows below. Add a row, then type each injury’s bleed and penalty.</p>
+              {{#if system.wounds.length}}
+              <div class="injury-line injury-header">
+                <span>Injury</span>
+                <span>Bleed</span>
+                <span>Pen</span>
+                <span>Notes</span>
+                <span></span>
+              </div>
+              {{/if}}
               {{#each system.wounds as |w i|}}
               <div class="injury-line">
                 <input type="text" name="system.wounds.{{i}}.name" value="{{w.name}}" placeholder="Injury" />
-                <input type="number" name="system.wounds.{{i}}.bleed" value="{{w.bleed}}" title="Bleed" />
-                <input type="number" name="system.wounds.{{i}}.penalty" value="{{w.penalty}}" title="Penalty" />
+                <input type="number" name="system.wounds.{{i}}.bleed" value="{{w.bleed}}" title="Bleed" placeholder="0" />
+                <input type="number" name="system.wounds.{{i}}.penalty" value="{{w.penalty}}" title="Penalty" placeholder="0" />
                 <input type="text" name="system.wounds.{{i}}.notes" value="{{w.notes}}" placeholder="Notes" />
-                <a data-action="deleteWound" data-index="{{i}}"><i class="fas fa-trash"></i></a>
+                <a data-action="deleteWound" data-index="{{i}}" title="Remove"><i class="fas fa-trash"></i></a>
               </div>
               {{/each}}
             </div>
@@ -362,6 +372,46 @@
               <div class="cell"><input class="form-col-input" type="number" name="system.spellLores.{{key}}.spec" value="{{sl.spec}}" /></div>
               <div class="cell"><input class="form-col-input" type="number" name="system.spellLores.{{key}}.item" value="{{sl.item}}" /></div>
               <div class="cell tot">{{vsdSigned sl.total}}</div>
+            </div>
+            {{/each}}
+          </div>
+        </section>
+
+        <section class="form-section">
+          <h3 class="form-section-title">Known Spells <a data-action="addSpell" title="Add spell"><i class="fas fa-plus"></i></a></h3>
+          <p class="hint">Reference list only. Click the die to roll the linked lore total (name as label). Spend MP yourself.</p>
+          <div class="form-table spells-known-table">
+            <div class="form-row header">
+              <div class="cell"></div>
+              <div class="cell name">Spell</div>
+              <div class="cell">Lore</div>
+              <div class="cell">Lvl</div>
+              <div class="cell">MP</div>
+              <div class="cell">Notes</div>
+              <div class="cell"></div>
+            </div>
+            {{#each knownSpells as |sp|}}
+            <div class="form-row">
+              <div class="cell roll-cell">
+                <a class="roll-icon" data-action="rollKnownSpell" data-index="{{sp.index}}" title="Roll linked lore">
+                  <i class="fas fa-dice-d20"></i>
+                </a>
+              </div>
+              <div class="cell name">
+                <input class="form-col-input attack-name-input" type="text" name="system.spells.{{sp.index}}.name" value="{{sp.name}}" placeholder="Spell name" />
+              </div>
+              <div class="cell">
+                <select name="system.spells.{{sp.index}}.lore">
+                  <option value="">—</option>
+                  {{#each sp.loreOptions as |opt|}}
+                  <option value="{{opt.key}}" {{#if opt.selected}}selected{{/if}}>{{opt.label}}</option>
+                  {{/each}}
+                </select>
+              </div>
+              <div class="cell"><input class="form-col-input" type="number" name="system.spells.{{sp.index}}.level" value="{{sp.level}}" min="0" /></div>
+              <div class="cell"><input class="form-col-input" type="number" name="system.spells.{{sp.index}}.mp" value="{{sp.mp}}" min="0" /></div>
+              <div class="cell"><input class="form-col-input attack-name-input" type="text" name="system.spells.{{sp.index}}.notes" value="{{sp.notes}}" placeholder="Range, weave…" /></div>
+              <div class="cell"><a data-action="deleteSpell" data-index="{{sp.index}}" title="Remove"><i class="fas fa-trash"></i></a></div>
             </div>
             {{/each}}
           </div>

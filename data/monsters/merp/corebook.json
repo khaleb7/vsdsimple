@@ -1,0 +1,2722 @@
+[
+  {
+    "id": "ape-small",
+    "name": "Ape, small",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "30L",
+      "at": "NA",
+      "def": 25,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 45,
+        "max": 45
+      },
+      "attacks": {
+        "first": {
+          "bonus": 35,
+          "label": "Small Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-25 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "ape-large",
+    "name": "Ape, large",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "30L",
+      "at": "NA",
+      "def": 20,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 100,
+        "max": 100
+      },
+      "attacks": {
+        "first": {
+          "bonus": 60,
+          "label": "Medium Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-15 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "ape-huge",
+    "name": "Ape, huge",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "30L",
+      "at": "LA",
+      "def": 20,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 140,
+        "max": 140
+      },
+      "attacks": {
+        "first": {
+          "bonus": 90,
+          "label": "Large Grapple",
+          "type": "grapple"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "HB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-10 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "bat-small",
+    "name": "Bat, small",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "40F",
+      "at": "NA",
+      "def": 60,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 5,
+        "max": 5
+      },
+      "attacks": {
+        "first": {
+          "bonus": 35,
+          "label": "Tiny Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-100 \u00b7 Speed: Very Fast\nMERP Level 0: XP as 0, RR as Level 1."
+    }
+  },
+  {
+    "id": "bat-giant",
+    "name": "Bat, giant",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "40F",
+      "at": "NA",
+      "def": 50,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 60,
+        "max": 60
+      },
+      "attacks": {
+        "first": {
+          "bonus": 50,
+          "label": "Small Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-20 \u00b7 Speed: Very Fast"
+    }
+  },
+  {
+    "id": "bear-large",
+    "name": "Bear, large",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "24L",
+      "at": "LA",
+      "def": 30,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 150,
+        "max": 150
+      },
+      "attacks": {
+        "first": {
+          "bonus": 70,
+          "label": "Large Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-5 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "bear-giant",
+    "name": "Bear, giant",
+    "system": {
+      "level": 7,
+      "levelType": "Elite",
+      "mr": "24L",
+      "at": "LA",
+      "def": 40,
+      "tsr": 35,
+      "wsr": 25,
+      "hp": {
+        "value": 250,
+        "max": 250
+      },
+      "attacks": {
+        "first": {
+          "bonus": 95,
+          "label": "Huge Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "HB",
+      "rog": 40,
+      "adv": 40,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-3 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "bird-small",
+    "name": "Bird, small",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "24F",
+      "at": "NA",
+      "def": 40,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 5,
+        "max": 5
+      },
+      "attacks": {
+        "first": {
+          "bonus": 25,
+          "label": "Tiny Talon",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-100 \u00b7 Speed: Mod. Fast\nMERP Level 0: XP as 0, RR as Level 1."
+    }
+  },
+  {
+    "id": "bird-large",
+    "name": "Bird, large",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "30F",
+      "at": "NA",
+      "def": 30,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 30,
+        "max": 30
+      },
+      "attacks": {
+        "first": {
+          "bonus": 40,
+          "label": "Medium Talon",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-4 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "boar",
+    "name": "Boar",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "24L",
+      "at": "LA",
+      "def": 40,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 110,
+        "max": 110
+      },
+      "attacks": {
+        "first": {
+          "bonus": 55,
+          "label": "Large Horn",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-6 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "bull",
+    "name": "Bull",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "24L",
+      "at": "NA",
+      "def": 25,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 190,
+        "max": 190
+      },
+      "attacks": {
+        "first": {
+          "bonus": 50,
+          "label": "Large Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "cat-small",
+    "name": "Cat, small",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "24L",
+      "at": "NA",
+      "def": 25,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "attacks": {
+        "first": {
+          "bonus": 40,
+          "label": "Small Claw",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-3 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "cat-medium",
+    "name": "Cat, medium",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "40L",
+      "at": "NA",
+      "def": 35,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 50,
+        "max": 50
+      },
+      "attacks": {
+        "first": {
+          "bonus": 60,
+          "label": "Small Claw",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-6 \u00b7 Speed: Very Fast"
+    }
+  },
+  {
+    "id": "cat-large",
+    "name": "Cat, large",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "30L",
+      "at": "LA",
+      "def": 35,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 100,
+        "max": 100
+      },
+      "attacks": {
+        "first": {
+          "bonus": 80,
+          "label": "Medium Claw",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-10 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "deer-female",
+    "name": "Deer, female",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "40L",
+      "at": "NA",
+      "def": 25,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 50,
+        "max": 50
+      },
+      "attacks": {
+        "first": {
+          "bonus": 15,
+          "label": "Small Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-15 \u00b7 Speed: Very Fast"
+    }
+  },
+  {
+    "id": "deer-male",
+    "name": "Deer, male",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "40L",
+      "at": "NA",
+      "def": 25,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 70,
+        "max": 70
+      },
+      "attacks": {
+        "first": {
+          "bonus": 50,
+          "label": "Large Horn",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1 \u00b7 Speed: Very Fast"
+    }
+  },
+  {
+    "id": "dog-small",
+    "name": "Dog, small",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "8L",
+      "at": "NA",
+      "def": 20,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 30,
+        "max": 30
+      },
+      "attacks": {
+        "first": {
+          "bonus": 40,
+          "label": "Small Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-10 \u00b7 Speed: Slow"
+    }
+  },
+  {
+    "id": "dog-medium",
+    "name": "Dog, medium",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "15L",
+      "at": "NA",
+      "def": 25,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 70,
+        "max": 70
+      },
+      "attacks": {
+        "first": {
+          "bonus": 50,
+          "label": "Medium Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-20 \u00b7 Speed: Medium"
+    }
+  },
+  {
+    "id": "dog-large",
+    "name": "Dog, large",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "24L",
+      "at": "LA",
+      "def": 25,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 110,
+        "max": 110
+      },
+      "attacks": {
+        "first": {
+          "bonus": 70,
+          "label": "Large Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-20 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "dolphin",
+    "name": "Dolphin",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "30S",
+      "at": "NA",
+      "def": 40,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 70,
+        "max": 70
+      },
+      "attacks": {
+        "first": {
+          "bonus": 50,
+          "label": "Medium Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-30 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "elk",
+    "name": "Elk",
+    "system": {
+      "level": 4,
+      "levelType": "Common",
+      "mr": "24L",
+      "at": "LA",
+      "def": 35,
+      "tsr": 20,
+      "wsr": 10,
+      "hp": {
+        "value": 230,
+        "max": 230
+      },
+      "attacks": {
+        "first": {
+          "bonus": 75,
+          "label": "Huge Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "HB",
+      "rog": 25,
+      "adv": 25,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-15 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "horse-small",
+    "name": "Horse, small",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "40L",
+      "at": "NA",
+      "def": 30,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 90,
+        "max": 90
+      },
+      "attacks": {
+        "first": {
+          "bonus": 30,
+          "label": "Medium Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-50 \u00b7 Speed: Very Fast"
+    }
+  },
+  {
+    "id": "horse-large",
+    "name": "Horse, large",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "30L",
+      "at": "NA",
+      "def": 30,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 140,
+        "max": 140
+      },
+      "attacks": {
+        "first": {
+          "bonus": 45,
+          "label": "Large Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-50 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "lizard-small",
+    "name": "Lizard, small",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "5L",
+      "at": "NA",
+      "def": 50,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 5,
+        "max": 5
+      },
+      "attacks": {
+        "first": {
+          "bonus": 20,
+          "label": "Tiny Sting",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1 \u00b7 Speed: Very Slow\nMERP Level 0: XP as 0, RR as Level 1."
+    }
+  },
+  {
+    "id": "lizard-medium",
+    "name": "Lizard, medium",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "8L",
+      "at": "NA",
+      "def": 40,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "attacks": {
+        "first": {
+          "bonus": 25,
+          "label": "Small Sting",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1 \u00b7 Speed: Slow"
+    }
+  },
+  {
+    "id": "lizard-large",
+    "name": "Lizard, large",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "15L",
+      "at": "NA",
+      "def": 30,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 35,
+        "max": 35
+      },
+      "attacks": {
+        "first": {
+          "bonus": 45,
+          "label": "Small Sting",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1 \u00b7 Speed: Medium"
+    }
+  },
+  {
+    "id": "moose",
+    "name": "Moose",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "30L",
+      "at": "NA",
+      "def": 30,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 200,
+        "max": 200
+      },
+      "attacks": {
+        "first": {
+          "bonus": 45,
+          "label": "Medium Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-10 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "pony",
+    "name": "Pony",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "24L",
+      "at": "NA",
+      "def": 25,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 65,
+        "max": 65
+      },
+      "attacks": {
+        "first": {
+          "bonus": 30,
+          "label": "Small Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-50 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "shark-large",
+    "name": "Shark, large",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "30S",
+      "at": "LA",
+      "def": 30,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 120,
+        "max": 120
+      },
+      "attacks": {
+        "first": {
+          "bonus": 75,
+          "label": "Huge Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-30 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "snake-small",
+    "name": "Snake, small",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "8L",
+      "at": "NA",
+      "def": 40,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 5,
+        "max": 5
+      },
+      "attacks": {
+        "first": {
+          "bonus": 30,
+          "label": "Tiny Fang",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1+ \u00b7 Speed: Slow\nMERP Level 0: XP as 0, RR as Level 1."
+    }
+  },
+  {
+    "id": "snake-medium",
+    "name": "Snake, medium",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "15L",
+      "at": "NA",
+      "def": 30,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 20,
+        "max": 20
+      },
+      "attacks": {
+        "first": {
+          "bonus": 35,
+          "label": "Small Fang",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1+ \u00b7 Speed: Medium"
+    }
+  },
+  {
+    "id": "snake-large",
+    "name": "Snake, large",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "8L",
+      "at": "LA",
+      "def": 20,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 35,
+        "max": 35
+      },
+      "attacks": {
+        "first": {
+          "bonus": 50,
+          "label": "Small Fang",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1+ \u00b7 Speed: Slow"
+    }
+  },
+  {
+    "id": "spider-small",
+    "name": "Spider, small",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "3L",
+      "at": "NA",
+      "def": 10,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 1,
+        "max": 1
+      },
+      "attacks": {
+        "first": {
+          "bonus": 10,
+          "label": "Tiny Sting",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-100 \u00b7 Speed: Creeping\nMERP Level 0: XP as 0, RR as Level 1."
+    }
+  },
+  {
+    "id": "spider-medium",
+    "name": "Spider, medium",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "3L",
+      "at": "NA",
+      "def": 5,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 5,
+        "max": 5
+      },
+      "attacks": {
+        "first": {
+          "bonus": 10,
+          "label": "Small Sting",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-50 \u00b7 Speed: Creeping\nMERP Level 0: XP as 0, RR as Level 1."
+    }
+  },
+  {
+    "id": "spider-large",
+    "name": "Spider, large",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "5L",
+      "at": "NA",
+      "def": 0,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "attacks": {
+        "first": {
+          "bonus": 20,
+          "label": "Small Sting",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-50 \u00b7 Speed: Very Slow"
+    }
+  },
+  {
+    "id": "whale",
+    "name": "Whale",
+    "system": {
+      "level": 10,
+      "levelType": "Elite",
+      "mr": "24S",
+      "at": "LA",
+      "def": 60,
+      "tsr": 50,
+      "wsr": 40,
+      "hp": {
+        "value": 450,
+        "max": 450
+      },
+      "attacks": {
+        "first": {
+          "bonus": 90,
+          "label": "Huge Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "EB",
+      "rog": 55,
+      "adv": 55,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-20 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "wolf",
+    "name": "Wolf",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "24L",
+      "at": "LA",
+      "def": 30,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 110,
+        "max": 110
+      },
+      "attacks": {
+        "first": {
+          "bonus": 70,
+          "label": "Large Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 animal\nNum: 1-20 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "balrog",
+    "name": "Balrog",
+    "system": {
+      "level": 60,
+      "levelType": "Antagonist",
+      "mr": "40F",
+      "at": "HA",
+      "def": 60,
+      "tsr": 300,
+      "wsr": 310,
+      "hp": {
+        "value": 400,
+        "max": 400
+      },
+      "attacks": {
+        "first": {
+          "bonus": 240,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "EH",
+      "rog": 300,
+      "adv": 300,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Very Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "crebain",
+    "name": "Crebain",
+    "system": {
+      "level": 2,
+      "levelType": "Common",
+      "mr": "30F",
+      "at": "NA",
+      "def": 50,
+      "tsr": 10,
+      "wsr": 0,
+      "hp": {
+        "value": 10,
+        "max": 10
+      },
+      "attacks": {
+        "first": {
+          "bonus": 25,
+          "label": "Small Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-100 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "dragon",
+    "name": "Dragon",
+    "system": {
+      "level": 25,
+      "levelType": "Antagonist",
+      "mr": "40F",
+      "at": "HA",
+      "def": 40,
+      "tsr": 125,
+      "wsr": 125,
+      "hp": {
+        "value": 260,
+        "max": 260
+      },
+      "attacks": {
+        "first": {
+          "bonus": 175,
+          "label": "Huge Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "EB",
+      "rog": 130,
+      "adv": 130,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Very Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "dumbledors",
+    "name": "Dumbledor",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "30F",
+      "at": "NA",
+      "def": 40,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 3,
+        "max": 3
+      },
+      "attacks": {
+        "first": {
+          "bonus": 10,
+          "label": "Tiny Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-100 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "eagle-great",
+    "name": "Eagle, Great",
+    "system": {
+      "level": 30,
+      "levelType": "Antagonist",
+      "mr": "50F",
+      "at": "LA",
+      "def": 60,
+      "tsr": 150,
+      "wsr": 150,
+      "hp": {
+        "value": 250,
+        "max": 250
+      },
+      "attacks": {
+        "first": {
+          "bonus": 110,
+          "label": "Huge Talon",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "EB",
+      "rog": 155,
+      "adv": 155,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-10 \u00b7 Speed: Blindingly Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "ent",
+    "name": "Ent",
+    "system": {
+      "level": 35,
+      "levelType": "Antagonist",
+      "mr": "15L",
+      "at": "HA",
+      "def": 30,
+      "tsr": 175,
+      "wsr": 175,
+      "hp": {
+        "value": 400,
+        "max": 400
+      },
+      "attacks": {
+        "first": {
+          "bonus": 170,
+          "label": "Huge Crush",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "EH",
+      "rog": 175,
+      "adv": 175,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1+ \u00b7 Speed: Medium\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "festitycelyn",
+    "name": "Festitycelyn",
+    "system": {
+      "level": 15,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "HA",
+      "def": 35,
+      "tsr": 75,
+      "wsr": 65,
+      "hp": {
+        "value": 250,
+        "max": 250
+      },
+      "attacks": {
+        "first": {
+          "bonus": 120,
+          "label": "Huge Sting",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "EB",
+      "rog": 80,
+      "adv": 80,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Medium"
+    }
+  },
+  {
+    "id": "fell-beast",
+    "name": "Fell Beast",
+    "system": {
+      "level": 20,
+      "levelType": "Antagonist",
+      "mr": "30F",
+      "at": "MA",
+      "def": 35,
+      "tsr": 100,
+      "wsr": 100,
+      "hp": {
+        "value": 210,
+        "max": 210
+      },
+      "attacks": {
+        "first": {
+          "bonus": 95,
+          "label": "Huge Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "EB",
+      "rog": 105,
+      "adv": 105,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-2 \u00b7 Speed: Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "flies-of-mordor",
+    "name": "Fly of Mordor",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "30F",
+      "at": "NA",
+      "def": 35,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 2,
+        "max": 2
+      },
+      "attacks": {
+        "first": {
+          "bonus": 15,
+          "label": "Tiny Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 10,
+      "adv": 10,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-100 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "giant",
+    "name": "Giant",
+    "system": {
+      "level": 20,
+      "levelType": "Antagonist",
+      "mr": "15L",
+      "at": "LAs",
+      "def": 30,
+      "tsr": 100,
+      "wsr": 100,
+      "hp": {
+        "value": 350,
+        "max": 350
+      },
+      "attacks": {
+        "first": {
+          "bonus": 140,
+          "label": "Huge Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "EH",
+      "rog": 100,
+      "adv": 100,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-3 \u00b7 Speed: Medium\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "hummerhorns",
+    "name": "Hummerhorn",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "40F",
+      "at": "NA",
+      "def": 50,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 35,
+        "max": 35
+      },
+      "attacks": {
+        "first": {
+          "bonus": 50,
+          "label": "Medium Horn",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 20,
+      "adv": 20,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-20 \u00b7 Speed: Very Fast"
+    }
+  },
+  {
+    "id": "huorn",
+    "name": "Huorn",
+    "system": {
+      "level": 20,
+      "levelType": "Antagonist",
+      "mr": "5L",
+      "at": "MA",
+      "def": 20,
+      "tsr": 100,
+      "wsr": 90,
+      "hp": {
+        "value": 350,
+        "max": 350
+      },
+      "attacks": {
+        "first": {
+          "bonus": 75,
+          "label": "Large Bash",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "EB",
+      "rog": 105,
+      "adv": 105,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-20 \u00b7 Speed: Very Slow"
+    }
+  },
+  {
+    "id": "kraken-small",
+    "name": "Kraken, small",
+    "system": {
+      "level": 15,
+      "levelType": "Elite",
+      "mr": "24S",
+      "at": "NA",
+      "def": 50,
+      "tsr": 75,
+      "wsr": 75,
+      "hp": {
+        "value": 150,
+        "max": 150
+      },
+      "attacks": {
+        "first": {
+          "bonus": 75,
+          "label": "Medium Grapple",
+          "type": "grapple"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "HB",
+      "rog": 80,
+      "adv": 80,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Mod. Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "kraken-medium",
+    "name": "Kraken, medium",
+    "system": {
+      "level": 25,
+      "levelType": "Antagonist",
+      "mr": "15S",
+      "at": "LA",
+      "def": 40,
+      "tsr": 125,
+      "wsr": 125,
+      "hp": {
+        "value": 300,
+        "max": 300
+      },
+      "attacks": {
+        "first": {
+          "bonus": 125,
+          "label": "Large Grapple",
+          "type": "grapple"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "HB",
+      "rog": 130,
+      "adv": 130,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Medium\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "kraken-large",
+    "name": "Kraken, large",
+    "system": {
+      "level": 35,
+      "levelType": "Antagonist",
+      "mr": "8S",
+      "at": "LA",
+      "def": 40,
+      "tsr": 175,
+      "wsr": 175,
+      "hp": {
+        "value": 400,
+        "max": 400
+      },
+      "attacks": {
+        "first": {
+          "bonus": 150,
+          "label": "Huge Grapple",
+          "type": "grapple"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "EB",
+      "rog": 180,
+      "adv": 180,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Slow\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "mearas",
+    "name": "Mearas",
+    "system": {
+      "level": 10,
+      "levelType": "Elite",
+      "mr": "50L",
+      "at": "NA",
+      "def": 40,
+      "tsr": 50,
+      "wsr": 40,
+      "hp": {
+        "value": 200,
+        "max": 200
+      },
+      "attacks": {
+        "first": {
+          "bonus": 75,
+          "label": "Large Bash",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 55,
+      "adv": 55,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-15 \u00b7 Speed: Blindingly Fast"
+    }
+  },
+  {
+    "id": "mewlips",
+    "name": "Mewlip",
+    "system": {
+      "level": 4,
+      "levelType": "Common",
+      "mr": "24L",
+      "at": "NA",
+      "def": 35,
+      "tsr": 20,
+      "wsr": 20,
+      "hp": {
+        "value": 60,
+        "max": 60
+      },
+      "attacks": {
+        "first": {
+          "bonus": 55,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NH",
+      "rog": 20,
+      "adv": 20,
+      "lor": 20,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 2-20 \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "mumakil",
+    "name": "M\u00fbmak",
+    "system": {
+      "level": 7,
+      "levelType": "Elite",
+      "mr": "30L",
+      "at": "LA",
+      "def": 25,
+      "tsr": 35,
+      "wsr": 25,
+      "hp": {
+        "value": 300,
+        "max": 300
+      },
+      "attacks": {
+        "first": {
+          "bonus": 85,
+          "label": "Huge Ram",
+          "type": "blunt"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "HB",
+      "rog": 40,
+      "adv": 40,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-10 \u00b7 Speed: Fast"
+    }
+  },
+  {
+    "id": "nazgul",
+    "name": "Nazg\u00fbl",
+    "system": {
+      "level": 20,
+      "levelType": "Antagonist",
+      "mr": "30L",
+      "at": "MAs",
+      "def": 75,
+      "tsr": 100,
+      "wsr": 110,
+      "hp": {
+        "value": 200,
+        "max": 200
+      },
+      "attacks": {
+        "first": {
+          "bonus": 175,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "EH",
+      "rog": 100,
+      "adv": 100,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-9 \u00b7 Speed: Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "olog-hai",
+    "name": "Olog-hai",
+    "system": {
+      "level": 15,
+      "levelType": "Elite",
+      "mr": "24L",
+      "at": "HA",
+      "def": 45,
+      "tsr": 75,
+      "wsr": 65,
+      "hp": {
+        "value": 150,
+        "max": 150
+      },
+      "attacks": {
+        "first": {
+          "bonus": 160,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "HH",
+      "rog": 75,
+      "adv": 75,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1+ \u00b7 Speed: Mod. Fast"
+    }
+  },
+  {
+    "id": "orc-weak",
+    "name": "Orc, weak",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "15L",
+      "at": "NA",
+      "def": 25,
+      "tsr": 5,
+      "wsr": 0,
+      "hp": {
+        "value": 35,
+        "max": 35
+      },
+      "attacks": {
+        "first": {
+          "bonus": 35,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NH",
+      "rog": 5,
+      "adv": 5,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1+ \u00b7 Speed: Medium"
+    }
+  },
+  {
+    "id": "orc-medium",
+    "name": "Orc, medium",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "15L",
+      "at": "LAs",
+      "def": 30,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 60,
+        "max": 60
+      },
+      "attacks": {
+        "first": {
+          "bonus": 60,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NH",
+      "rog": 15,
+      "adv": 15,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1+ \u00b7 Speed: Medium"
+    }
+  },
+  {
+    "id": "orc-strong",
+    "name": "Orc, strong",
+    "system": {
+      "level": 5,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "MAs",
+      "def": 30,
+      "tsr": 25,
+      "wsr": 15,
+      "hp": {
+        "value": 85,
+        "max": 85
+      },
+      "attacks": {
+        "first": {
+          "bonus": 75,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NH",
+      "rog": 25,
+      "adv": 25,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1+ \u00b7 Speed: Medium"
+    }
+  },
+  {
+    "id": "spider-great",
+    "name": "Spider, Great",
+    "system": {
+      "level": 5,
+      "levelType": "Elite",
+      "mr": "24L",
+      "at": "MA",
+      "def": 20,
+      "tsr": 25,
+      "wsr": 25,
+      "hp": {
+        "value": 50,
+        "max": 50
+      },
+      "attacks": {
+        "first": {
+          "bonus": 60,
+          "label": "Medium Sting",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "NB",
+      "rog": 30,
+      "adv": 30,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-20 \u00b7 Speed: Mod. Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "troll",
+    "name": "Troll",
+    "system": {
+      "level": 12,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "LAs",
+      "def": 35,
+      "tsr": 60,
+      "wsr": 50,
+      "hp": {
+        "value": 180,
+        "max": 180
+      },
+      "attacks": {
+        "first": {
+          "bonus": 150,
+          "label": "Huge Claw",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "HH",
+      "rog": 60,
+      "adv": 60,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-10 \u00b7 Speed: Medium"
+    }
+  },
+  {
+    "id": "vampire",
+    "name": "Vampire",
+    "system": {
+      "level": 15,
+      "levelType": "Elite",
+      "mr": "30F",
+      "at": "NA",
+      "def": 65,
+      "tsr": 75,
+      "wsr": 85,
+      "hp": {
+        "value": 150,
+        "max": 150
+      },
+      "attacks": {
+        "first": {
+          "bonus": 100,
+          "label": "Huge Claw",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "HH",
+      "rog": 75,
+      "adv": 75,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "warg",
+    "name": "Warg",
+    "system": {
+      "level": 8,
+      "levelType": "Elite",
+      "mr": "40L",
+      "at": "NA",
+      "def": 55,
+      "tsr": 40,
+      "wsr": 30,
+      "hp": {
+        "value": 150,
+        "max": 150
+      },
+      "attacks": {
+        "first": {
+          "bonus": 90,
+          "label": "Large Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 45,
+      "adv": 45,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 4-20 \u00b7 Speed: Very Fast"
+    }
+  },
+  {
+    "id": "werewolf",
+    "name": "Werewolf",
+    "system": {
+      "level": 10,
+      "levelType": "Elite",
+      "mr": "40L",
+      "at": "LA",
+      "def": 65,
+      "tsr": 50,
+      "wsr": 50,
+      "hp": {
+        "value": 250,
+        "max": 250
+      },
+      "attacks": {
+        "first": {
+          "bonus": 120,
+          "label": "Huge Bite",
+          "type": "beast"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "HB",
+      "rog": 55,
+      "adv": 55,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1-5 \u00b7 Speed: Very Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "wight-minor",
+    "name": "Wight, minor",
+    "system": {
+      "level": 10,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "NA",
+      "def": 40,
+      "tsr": 50,
+      "wsr": 60,
+      "hp": {
+        "value": 100,
+        "max": 100
+      },
+      "attacks": {
+        "first": {
+          "bonus": 95,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "HH",
+      "rog": 50,
+      "adv": 50,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Medium\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "wight-lesser",
+    "name": "Wight, lesser",
+    "system": {
+      "level": 15,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "NA",
+      "def": 50,
+      "tsr": 75,
+      "wsr": 85,
+      "hp": {
+        "value": 125,
+        "max": 125
+      },
+      "attacks": {
+        "first": {
+          "bonus": 115,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "HH",
+      "rog": 75,
+      "adv": 75,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Medium\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  },
+  {
+    "id": "wight-major",
+    "name": "Wight, major",
+    "system": {
+      "level": 25,
+      "levelType": "Antagonist",
+      "mr": "24L",
+      "at": "NA",
+      "def": 60,
+      "tsr": 125,
+      "wsr": 135,
+      "hp": {
+        "value": 175,
+        "max": 175
+      },
+      "attacks": {
+        "first": {
+          "bonus": 170,
+          "label": "Weapon",
+          "type": "edged"
+        },
+        "second": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": "",
+          "type": ""
+        }
+      },
+      "special": "Special (*)",
+      "ct": "HH",
+      "rog": 125,
+      "adv": 125,
+      "lor": 0,
+      "notes": "MERP CE ST-2 \u00b7 monster\nNum: 1 \u00b7 Speed: Mod. Fast\nSpecial attacks/powers (*): see MERP creature description."
+    }
+  }
+]

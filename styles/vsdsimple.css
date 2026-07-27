@@ -315,6 +315,35 @@
 .spell-cols {
   grid-template-columns: 1.8fr repeat(5, 0.7fr) 0.75fr;
 }
+.spells-known-table .form-row {
+  grid-template-columns: 1.6rem 1.6fr 1.4fr 0.55fr 0.55fr 1.4fr 0.4fr;
+}
+.spells-known-table .cell.name {
+  overflow: visible;
+  white-space: normal;
+}
+.spells-known-table select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+  font-family: Ubuntu, sans-serif;
+  font-size: 11px;
+  color: inherit;
+  height: 1.2rem;
+  padding: 0;
+}
+.spells-known-table .roll-cell {
+  text-align: center;
+}
+.spells-known-table .roll-icon {
+  color: #1a1a1a;
+  cursor: pointer;
+  text-decoration: none;
+}
+.spells-known-table .roll-icon:hover {
+  color: #6b3a1f;
+}
 .attacks-table .form-row {
   grid-template-columns: 1.6rem 2fr 0.7fr 0.7fr 0.9fr 0.9fr 0.4fr;
 }
@@ -459,6 +488,13 @@
   margin-bottom: 0.2rem;
   align-items: center;
 }
+.injury-line.injury-header {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.15rem;
+}
 .injury-line input {
   border: none;
   border-bottom: 1px solid #aaa;
@@ -510,6 +546,18 @@
 }
 .vsd-npc-wrapper .npc-notes textarea {
   min-height: 18rem;
+}
+.vsd-npc-wrapper .form-top-bar.npc-combat-top {
+  margin-bottom: 0.75rem;
+}
+.vsd-npc-wrapper .conditions-grid {
+  max-height: 260px;
+}
+.vsd-npc-wrapper .hint {
+  font-size: 11px;
+  color: #666;
+  margin: 0 0 0.4rem;
+  font-style: italic;
 }
 
 .npc-header {
@@ -581,8 +629,18 @@
   text-align: center;
 }
 .npc-stat-block .level-cell,
-.npc-stat-block .hp-cell,
+.npc-stat-block .hp-cell {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
 .npc-stat-block .atk-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  align-items: stretch;
+}
+.npc-stat-block .atk-main {
   display: flex;
   gap: 0.35rem;
   align-items: center;
@@ -592,9 +650,33 @@
   width: 3.5rem;
   flex: 0 0 auto;
 }
-.npc-stat-block .atk-cell input:first-child {
+.npc-stat-block .atk-main input:first-child {
   width: 3.5rem;
   flex: 0 0 auto;
+}
+.npc-stat-block .atk-type-row {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+.npc-stat-block .atk-type-row select {
+  flex: 0 0 auto;
+  min-width: 5.5rem;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+  font-family: inherit;
+  font-size: 11px;
+  color: inherit;
+  height: 1.3rem;
+  padding: 0;
+}
+.npc-stat-block .atk-tables-hint {
+  font-size: 10px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .npc-notes textarea {
   width: 100%;
@@ -641,6 +723,26 @@
   border-bottom: 1px solid #c8c4bb;
   background: #e5e1d7;
   flex-wrap: wrap;
+}
+.table-toolbar .severity-chips {
+  display: inline-flex;
+  gap: 0.2rem;
+  align-items: center;
+}
+.table-toolbar .severity-chip {
+  font-size: 11px;
+  font-family: Ubuntu, sans-serif;
+  padding: 0.15rem 0.35rem;
+  min-width: 2.4rem;
+  border: 1px solid #8a8578;
+  background: #faf8f3;
+  color: #1a1a1a;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.table-toolbar .severity-chip:hover {
+  background: #ebe7de;
+  border-color: #6b3a1f;
 }
 .table-toolbar .table-name {
   margin-left: auto;
@@ -757,6 +859,50 @@
 }
 .vsdsimple-roll .roll-actions {
   margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.vsdsimple-roll .roll-actions button {
+  font-size: 12px;
+  font-family: Ubuntu, sans-serif;
+}
+
+.vsdsimple-wound-nudge {
+  font-family: Ubuntu, sans-serif;
+  font-size: 13px;
+}
+.vsdsimple-wound-nudge .hint {
+  color: #666;
+  font-size: 11px;
+  font-style: italic;
+  margin-left: 0.35rem;
+}
+
+.vsdsimple-wound-badge {
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  white-space: nowrap;
+  font-size: 10px;
+  font-family: Ubuntu, sans-serif;
+  font-weight: bold;
+  color: #5c1a1a;
+  background: rgba(250, 248, 243, 0.95);
+  border: 1px solid #a05050;
+  border-radius: 2px;
+  padding: 1px 6px;
+  pointer-events: none;
+}
+
+.npc-stat-block .inline-hint {
+  font-size: 10px;
+  color: #666;
+  font-style: italic;
+  margin-left: 0.25rem;
+  text-transform: none;
 }
 
 /* Responsive */

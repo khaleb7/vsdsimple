@@ -66,7 +66,32 @@ def parse_attack(val: str):
     label = " ".join(bits).strip()
     if not label and not bonus:
         return None
-    return {"bonus": bonus, "label": label}
+    return {"bonus": bonus, "label": label, "type": infer_attack_type(label)}
+
+
+def infer_attack_type(label: str) -> str:
+    """Guess hit/crit table pairing from the attack label."""
+    l = label.lower()
+    if not l:
+        return ""
+    if any(w in l for w in ("claw", "bite", "horn", "talon", "sting", "hoof", "beak", "tentacle", "crush", "slam", "gore")):
+        return "beast"
+    if any(w in l for w in ("bow", "arrow", "ranged", "javelin", "thrown", "sling", "crossbow")):
+        return "missile"
+    if "grapple" in l or "wrestle" in l:
+        return "grapple"
+    if any(w in l for w in ("bolt",)):
+        return "bolt"
+    if "spell" in l:
+        return "bolt"
+    if "area" in l:
+        return "area"
+    if any(w in l for w in ("fist", "kick", "brawl", "unarmed", "punch")):
+        return "unarmed"
+    if any(w in l for w in ("blunt", "club", "mace", "hammer", "staff")):
+        return "blunt"
+    # Named weapons / generic "Weapon"
+    return "edged"
 
 
 def num(fields, key, default=0):
@@ -204,8 +229,11 @@ def to_monster(name, f):
             level_type = "Antagonist"
     attacks = list(f.get("_attacks", []))
     while len(attacks) < 3:
-        attacks.append({"bonus": 0, "label": ""})
+        attacks.append({"bonus": 0, "label": "", "type": ""})
     attacks = attacks[:3]
+    for a in attacks:
+        if "type" not in a:
+            a["type"] = infer_attack_type(a.get("label", ""))
     special = f.get("Special", "")
     if special in ("0", "-", "—"):
         special = ""
@@ -284,9 +312,9 @@ monsters.append(
             "wsr": 35,
             "hp": {"value": 95, "max": 95},
             "attacks": {
-                "first": {"bonus": 90, "label": "Weapon"},
-                "second": {"bonus": 80, "label": "Large Claw"},
-                "third": {"bonus": 0, "label": ""},
+                "first": {"bonus": 90, "label": "Weapon", "type": "edged"},
+                "second": {"bonus": 80, "label": "Large Claw", "type": "beast"},
+                "third": {"bonus": 0, "label": "", "type": ""},
             },
             "special": "Stench of Decay, Tremendous Strength",
             "ct": "HH",

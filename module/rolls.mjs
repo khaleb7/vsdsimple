@@ -1,9 +1,36 @@
-import { SYSTEM_ID } from "./config.mjs";
+import { SYSTEM_ID, allTables } from "./config.mjs";
+
+function resolveTableRef(id) {
+  if (!id) return null;
+  const raw = String(id).toLowerCase().trim();
+  const normalized = raw.replace(/[^a-z0-9]/g, "");
+  const tables = allTables();
+  const table =
+    tables.find((t) => t.id === raw) ||
+    tables.find((t) => t.id.replace(/_/g, "") === normalized) ||
+    tables.find((t) => t.label.toLowerCase() === raw);
+  if (!table) return { id: raw, label: String(id) };
+  return { id: table.id, label: table.label };
+}
 
 /**
  * Prompt for an optional situational modifier, then roll 1d100oe + bonus.
+ * @param {object} opts
+ * @param {Actor} [opts.actor]
+ * @param {string} opts.label
+ * @param {number} [opts.bonus]
+ * @param {string|null} [opts.table] Hit / attack table id
+ * @param {string|null} [opts.crit] Critical table id
+ * @param {boolean} [opts.skipModPrompt]
  */
-export async function rollCheck({ actor, label, bonus = 0, table = null, skipModPrompt = false }) {
+export async function rollCheck({
+  actor,
+  label,
+  bonus = 0,
+  table = null,
+  crit = null,
+  skipModPrompt = false
+} = {}) {
   let mod = 0;
   if (!skipModPrompt) {
     try {
@@ -35,6 +62,8 @@ export async function rollCheck({ actor, label, bonus = 0, table = null, skipMod
 
   const roll = await new Roll(formula).evaluate();
   const band = skillBand(roll.total);
+  const hitRef = resolveTableRef(table);
+  const critRef = resolveTableRef(crit);
   const content = await foundry.applications.handlebars.renderTemplate(
     `systems/${SYSTEM_ID}/templates/chat/roll.hbs`,
     {
@@ -42,7 +71,10 @@ export async function rollCheck({ actor, label, bonus = 0, table = null, skipMod
       formula: roll.formula,
       total: roll.total,
       band,
-      table,
+      table: hitRef?.id ?? null,
+      tableLabel: hitRef?.label ?? null,
+      crit: critRef?.id ?? null,
+      critLabel: critRef?.label ?? null,
       actorName: actor?.name ?? "",
       tooltip: await roll.getTooltip()
     }
@@ -53,7 +85,7 @@ export async function rollCheck({ actor, label, bonus = 0, table = null, skipMod
     content,
     rolls: [roll],
     sound: CONFIG.sounds.dice,
-    flags: { [SYSTEM_ID]: { table } }
+    flags: { [SYSTEM_ID]: { table: hitRef?.id ?? null, crit: critRef?.id ?? null } }
   });
 
   return roll;
@@ -67,11 +99,19 @@ function skillBand(total) {
   return game.i18n.localize("VSDSIMPLE.Roll.band.absolute");
 }
 
-export async function rollCriticalLookup(tableLabel) {
-  const roll = await new Roll("1d100").evaluate();
+/**
+ * Roll d100 for a critical/table lookup, with optional severity modifier.
+ * @param {string} tableLabel
+ * @param {{ severity?: string, mod?: number }} [opts]
+ */
+export async function rollCriticalLookup(tableLabel, { severity = null, mod = 0 } = {}) {
+  const m = Number(mod) || 0;
+  const formula = m === 0 ? "1d100" : m > 0 ? `1d100 + ${m}` : `1d100 - ${Math.abs(m)}`;
+  const roll = await new Roll(formula).evaluate();
+  const sevBit = severity ? ` (${severity}${m ? ` ${m >= 0 ? "+" : ""}${m}` : ""})` : "";
   await roll.toMessage({
     speaker: ChatMessage.getSpeaker(),
-    flavor: `${game.i18n.localize("VSDSIMPLE.Crit.lookup")}: ${tableLabel}`
+    flavor: `${game.i18n.localize("VSDSIMPLE.Crit.lookup")}: ${tableLabel}${sevBit}`
   });
   return roll;
 }

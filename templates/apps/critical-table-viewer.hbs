@@ -4,6 +4,13 @@
       <i class="fas fa-dice"></i> Roll d100
     </button>
     {{#if isCritical}}
+    <div class="severity-chips" title="{{localize "VSDSIMPLE.Crit.severityHint"}}">
+      {{#each severities as |s|}}
+      <button type="button" class="severity-chip" data-action="rollSeverity" data-severity="{{s.key}}" data-mod="{{s.mod}}" title="{{s.key}} {{#if s.mod}}+{{s.mod}}{{else}}+0{{/if}}">
+        {{s.label}}{{#if s.mod}}+{{s.mod}}{{/if}}
+      </button>
+      {{/each}}
+    </div>
     <button type="button" data-action="openHitCharts">
       <i class="fas fa-shield-halved"></i> {{localize "VSDSIMPLE.Crit.openHitCharts"}}
     </button>

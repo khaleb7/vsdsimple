@@ -1,4 +1,4 @@
-import { SYSTEM_ID } from "../config.mjs";
+import { SYSTEM_ID, SPELL_LORES } from "../config.mjs";
 import { rollCheck } from "../rolls.mjs";
 import { CriticalBrowser } from "../apps/critical-browser.mjs";
 
@@ -31,10 +31,13 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollDefense: CharacterSheet.#onRollDefense,
       rollAttack: CharacterSheet.#onRollAttack,
       rollSpell: CharacterSheet.#onRollSpell,
+      rollKnownSpell: CharacterSheet.#onRollKnownSpell,
       addAttack: CharacterSheet.#onAddAttack,
       deleteAttack: CharacterSheet.#onDeleteAttack,
       addWound: CharacterSheet.#onAddWound,
       deleteWound: CharacterSheet.#onDeleteWound,
+      addSpell: CharacterSheet.#onAddSpell,
+      deleteSpell: CharacterSheet.#onDeleteSpell,
       addTrait: CharacterSheet.#onAddTrait,
       deleteTrait: CharacterSheet.#onDeleteTrait,
       setDrive: CharacterSheet.#onSetDrive,
@@ -75,6 +78,15 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.derived = system.derived ?? {};
     context.logo = `systems/${SYSTEM_ID}/icons/darkmaster_logo.png`;
     context.statusEffects = this.#prepareStatusEffects();
+    context.spellLoreOptions = SPELL_LORES;
+    context.knownSpells = (system.spells ?? []).map((sp, index) => ({
+      ...sp,
+      index,
+      loreOptions: SPELL_LORES.map((opt) => ({
+        ...opt,
+        selected: sp.lore === opt.key
+      }))
+    }));
 
     // Flatten tabs for template (support both nested and flat AppV2 shapes)
     let tabMap = context.tabs ?? {};
@@ -143,6 +155,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       foundry.utils.deleteProperty(submitData, "system.attacks");
       foundry.utils.deleteProperty(submitData, "system.wounds");
       foundry.utils.deleteProperty(submitData, "system.traits");
+      foundry.utils.deleteProperty(submitData, "system.spells");
       return submitData;
     }
 
@@ -222,7 +235,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       actor: this.document,
       label: atk.name || "Attack",
       bonus: atk.bonus,
-      table: atk.crit || atk.table || null
+      table: atk.table || null,
+      crit: atk.crit || null
     });
   }
 
@@ -231,6 +245,19 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const lore = this.document.system.derived.spellLores[key];
     if (!lore) return;
     await rollCheck({ actor: this.document, label: lore.label, bonus: lore.total });
+  }
+
+  static async #onRollKnownSpell(event, target) {
+    const index = Number(target.dataset.index);
+    const spell = this.document.system.spells[index];
+    if (!spell) return;
+    const lore = this.document.system.derived.spellLores[spell.lore];
+    const label = spell.name?.trim() || lore?.label || "Spell";
+    await rollCheck({
+      actor: this.document,
+      label,
+      bonus: lore?.total ?? 0
+    });
   }
 
   static async #onAddAttack() {
@@ -259,6 +286,20 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const wounds = foundry.utils.deepClone(this.document.system.wounds);
     wounds.splice(index, 1);
     await this.#updateArrayField("system.wounds", wounds);
+  }
+
+  static async #onAddSpell() {
+    const spells = foundry.utils.deepClone(this.document.system.spells ?? []);
+    spells.push({ name: "", lore: "", level: 0, mp: 0, notes: "" });
+    await this.#updateArrayField("system.spells", spells);
+  }
+
+  static async #onDeleteSpell(event, target) {
+    event?.preventDefault?.();
+    const index = Number(target.dataset.index);
+    const spells = foundry.utils.deepClone(this.document.system.spells ?? []);
+    spells.splice(index, 1);
+    await this.#updateArrayField("system.spells", spells);
   }
 
   static async #onAddTrait() {
