@@ -1,0 +1,47 @@
+{
+  "id": "vsdsimple",
+  "title": "Against the Darkmaster (Simple)",
+  "description": "A simplified Against the Darkmaster Foundry system: form-fillable sheets, click-to-roll, critical tables, and manual token conditions. No combat automation.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "authors": [
+    {
+      "name": "vsdsimple",
+      "flags": {}
+    }
+  ],
+  "esmodules": [
+    "vsdsimple.mjs"
+  ],
+  "styles": [
+    "styles/vsdsimple.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {},
+      "npc": {}
+    }
+  },
+  "grid": {
+    "distance": 1.5,
+    "units": "m"
+  },
+  "primaryTokenAttribute": "pools.hp",
+  "secondaryTokenAttribute": "pools.mp",
+  "url": "https://github.com/khaleb7/vsdsimple",
+  "manifest": "https://github.com/khaleb7/vsdsimple/releases/latest/download/system.json",
+  "download": "https://github.com/khaleb7/vsdsimple/releases/latest/download/vsdsimple.zip",
+  "license": "LICENSE",
+  "readme": "README.md"
+}

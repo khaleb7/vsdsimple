@@ -1,0 +1,645 @@
+/* Against the Darkmaster (Simple) — form-fillable sheets */
+
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Regular.ttf");
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url("../fonts/Ubuntu-Bold.ttf");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Sabon LT Std";
+  src: url("../fonts/sabonltstd-roman.otf");
+}
+@font-face {
+  font-family: "Sabon LT Std";
+  src: url("../fonts/sabonltstd-bold.otf");
+  font-weight: bold;
+}
+
+/* ---------- Character form sheet ---------- */
+.vsdsimple.sheet.actor.character .window-content,
+.vsd-form-sheet .window-content {
+  background: #f7f5f0;
+  color: #1a1a1a;
+}
+
+.vsd-form-wrapper {
+  font-family: "Sabon LT Std", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 12px;
+  padding: 0.25rem 0.5rem 0.75rem;
+}
+
+.vsd-form-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f7f5f0;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid #c8c4bb;
+  margin-bottom: 0.5rem;
+}
+
+.form-logo-row {
+  display: grid;
+  grid-template-columns: auto 1fr 72px;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.header-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+}
+
+.portrait {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border: 1px solid #888;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.form-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-id-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+.uline-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.uline-field.grow { flex: 1; }
+.uline-field.narrow {
+  width: 4.5rem;
+  flex: 0 0 auto;
+}
+.uline-field > span:last-child {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #555;
+  margin-top: 1px;
+}
+.uline-field input,
+.uline-field .readonly {
+  border: none;
+  border-bottom: 1px solid #333;
+  border-radius: 0;
+  background: transparent;
+  height: 1.4rem;
+  padding: 0 2px;
+  font-family: inherit;
+  font-size: 13px;
+  width: 100%;
+  color: inherit;
+}
+
+.actorname {
+  font-weight: bold;
+  font-size: 15px !important;
+}
+
+.sheet-nav {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.5rem;
+}
+.sheet-nav .tabtitle {
+  flex: 1;
+  text-align: center;
+  padding: 0.35rem 0.5rem;
+  background: #d9d5cc;
+  color: #222;
+  border: 1px solid #b0aaa0;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+.sheet-nav .tabtitle.active {
+  background: #4a4640;
+  color: #f7f5f0;
+}
+
+.sheet-body {
+  max-height: calc(100% - 140px);
+  overflow: auto;
+}
+
+.tab.form-page { display: none; }
+.tab.form-page.active { display: block; }
+
+.form-section { margin-bottom: 0.65rem; }
+.form-section-title {
+  margin: 0 0 0.35rem;
+  padding: 0.2rem 0.45rem;
+  background: #cfcabe;
+  color: #1a1a1a;
+  font-size: 13px;
+  font-weight: bold;
+  font-variant: small-caps;
+  letter-spacing: 0.03em;
+  border: none;
+}
+.form-section-title a {
+  float: right;
+  color: #333;
+  margin-left: 0.5rem;
+}
+
+.form-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 0.75rem;
+}
+.form-two-col.conditions-defense {
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-grid-area {
+  min-height: 4rem;
+  padding: 0.35rem;
+  background:
+    linear-gradient(#e8e4db 1px, transparent 1px) 0 0 / 100% 18px,
+    linear-gradient(90deg, #e8e4db 1px, transparent 1px) 0 0 / 18px 100%;
+  background-color: #faf8f3;
+  border: 1px solid #c8c4bb;
+}
+
+.passion-line,
+.trait-line {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+.passion-line label { min-width: 5rem; font-weight: bold; }
+.passion-line input,
+.trait-line input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #666;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+
+.drive-point-markers {
+  display: flex;
+  gap: 0.55rem;
+  padding: 0.35rem 0.5rem;
+  align-items: center;
+}
+.drive-point,
+.heroic-path-point {
+  cursor: pointer;
+  color: #333;
+}
+.drive-point i,
+.heroic-path-point i { font-size: 14px; }
+.drive-clear {
+  margin-left: 0.5rem;
+  font-size: 1.1rem;
+  color: #666;
+  text-decoration: none;
+}
+
+.form-heroic {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding: 0.35rem 0.5rem;
+}
+.heroic-path-point {
+  position: relative;
+  text-align: center;
+  min-width: 1.4rem;
+}
+.heroic-path-point .hp-label {
+  display: block;
+  font-size: 9px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.form-table {
+  width: 100%;
+  border: 1px solid #b0aaa0;
+}
+.form-row {
+  display: grid;
+  align-items: center;
+  border-bottom: 1px solid #ddd9d0;
+  min-height: 1.35rem;
+}
+.form-row.header {
+  background: #e5e1d7;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+.form-row.cat-header {
+  background: #ece8df;
+  font-weight: bold;
+  font-variant: small-caps;
+  grid-template-columns: 1fr;
+  padding: 0.15rem 0.35rem;
+}
+.form-row .cell {
+  padding: 1px 3px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Ubuntu, sans-serif;
+  font-size: 11px;
+}
+.form-row .cell.name { text-align: left; }
+.form-row .cell.tot {
+  background: #f0ede6;
+  font-weight: bold;
+  border-left: 1px solid #b0aaa0;
+}
+
+.stats-table .form-row:not(.cat-header) {
+  grid-template-columns: 1.6fr repeat(3, 0.7fr) 0.75fr;
+}
+.saves-table .form-row:not(.cat-header) {
+  grid-template-columns: 1.2fr repeat(4, 0.65fr) 0.75fr;
+}
+.skill-cols {
+  grid-template-columns: 1.8fr repeat(6, 0.7fr) 0.75fr;
+}
+.spell-cols {
+  grid-template-columns: 1.8fr repeat(5, 0.7fr) 0.75fr;
+}
+.attacks-table .form-row {
+  grid-template-columns: 2fr 0.7fr 0.7fr 0.9fr 0.9fr 0.4fr;
+}
+
+.form-col-input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  border-radius: 0;
+  background: transparent;
+  text-align: center;
+  font-family: Ubuntu, sans-serif;
+  font-size: 11px;
+  color: inherit;
+  height: 1.2rem;
+  padding: 0;
+}
+.ranks-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.ranks-input { max-width: 2.2rem; }
+.rank-bonus {
+  font-size: 10px;
+  color: #666;
+}
+
+.roll-label {
+  color: #1a1a1a;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  cursor: pointer;
+  font-weight: bold;
+}
+.roll-label:hover { color: #6b3a1f; }
+
+.form-top-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+.hp-block,
+.wounds-block {
+  flex: 1;
+  min-width: 140px;
+}
+.hp-fields {
+  display: flex;
+  gap: 0.75rem;
+}
+.hp-fields label {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #555;
+}
+.boxed {
+  border: 1px solid #888 !important;
+  background: #fff !important;
+  min-width: 3rem;
+  height: 1.6rem;
+  text-align: center;
+  font-size: 14px;
+  font-family: Ubuntu, sans-serif;
+  color: inherit;
+}
+.boxed.readonly {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.4rem;
+}
+
+.conditions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
+  max-height: 220px;
+  overflow: auto;
+  margin-bottom: 0.5rem;
+}
+.condition-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.3rem;
+  border: 1px solid #c8c4bb;
+  background: #faf8f3;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: Ubuntu, sans-serif;
+}
+.condition-toggle.inEffect {
+  background: #4a4640;
+  color: #f7f5f0;
+  border-color: #4a4640;
+}
+.condition-toggle img {
+  width: 18px;
+  height: 18px;
+  border: none;
+}
+.hint {
+  font-size: 10px;
+  color: #666;
+  margin: 0 0 0.35rem;
+  font-style: italic;
+}
+
+.injuries-list h4 {
+  margin: 0.5rem 0 0.25rem;
+  font-size: 12px;
+}
+.injury-line {
+  display: grid;
+  grid-template-columns: 1.2fr 0.5fr 0.5fr 1.2fr auto;
+  gap: 0.25rem;
+  margin-bottom: 0.2rem;
+  align-items: center;
+}
+.injury-line input {
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+  font-size: 11px;
+  color: inherit;
+}
+
+.defense-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.vsd-form-wrapper textarea {
+  width: 100%;
+  min-height: 6rem;
+  border: 1px solid #c8c4bb;
+  background: #faf8f3;
+  font-family: Ubuntu, sans-serif;
+  font-size: 12px;
+  padding: 0.35rem;
+  color: inherit;
+}
+
+/* ---------- NPC stat block ---------- */
+.vsdsimple.sheet.actor.npc .window-content {
+  background: #f7f5f0;
+  color: #1a1a1a;
+}
+
+.vsd-npc-wrapper {
+  font-family: Ubuntu, sans-serif;
+  font-size: 13px;
+  padding: 0.5rem;
+}
+
+.npc-header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #c8c4bb;
+  padding-bottom: 0.5rem;
+}
+.npc-header .header-logo {
+  height: 40px;
+}
+.npc-identity {
+  flex: 1;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.npc-name {
+  flex: 1;
+  font-family: "Sabon LT Std", Palatino, Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: none;
+  border-bottom: 2px solid #1a1a1a;
+  background: transparent;
+  color: inherit;
+}
+.npc-identity .portrait {
+  width: 56px;
+  height: 56px;
+}
+
+.npc-stat-block {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.75rem;
+}
+.npc-stat-block th,
+.npc-stat-block td {
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid #ddd9d0;
+  text-align: left;
+  vertical-align: middle;
+}
+.npc-stat-block tr:nth-child(even) {
+  background: #ebe7de;
+}
+.npc-stat-block tr:nth-child(odd) {
+  background: #f7f5f0;
+}
+.npc-stat-block th {
+  font-weight: bold;
+  width: 5.5rem;
+  white-space: nowrap;
+}
+.npc-stat-block input[type="text"],
+.npc-stat-block input[type="number"] {
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+  width: 100%;
+  font-family: inherit;
+  font-size: 13px;
+  color: inherit;
+  text-align: center;
+}
+.npc-stat-block .level-cell,
+.npc-stat-block .hp-cell,
+.npc-stat-block .atk-cell {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+}
+.npc-stat-block .level-cell input:first-child,
+.npc-stat-block .hp-cell input {
+  width: 3.5rem;
+  flex: 0 0 auto;
+}
+.npc-stat-block .atk-cell input:first-child {
+  width: 3.5rem;
+  flex: 0 0 auto;
+}
+.npc-notes textarea {
+  width: 100%;
+  border: 1px solid #c8c4bb;
+  background: #faf8f3;
+  font-family: Ubuntu, sans-serif;
+  padding: 0.35rem;
+  color: inherit;
+}
+
+/* ---------- Critical browser / tables ---------- */
+.critical-browser-body {
+  padding: 0.5rem;
+}
+.crit-table-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.crit-table-list li {
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+.crit-table-list button {
+  flex: 1;
+  text-align: left;
+}
+.crit-table-list button.icon {
+  flex: 0 0 auto;
+  width: 2.2rem;
+}
+
+.critical-table-viewer-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.table-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid #c8c4bb;
+  background: #e5e1d7;
+}
+.table-content {
+  overflow: auto;
+  flex: 1;
+  padding: 0.5rem;
+  background: #f7f5f0;
+}
+.table-content .criticalstrikestable {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Ubuntu, sans-serif;
+  font-size: 12px;
+}
+.table-content .criticalstrikestable td,
+.table-content .criticalstrikestable th {
+  border: 1px solid #c8c4bb;
+  padding: 0.25rem 0.4rem;
+}
+.table-content .tableheaderrow {
+  background: #cfcabe;
+  font-weight: bold;
+}
+.table-content .tablerow:nth-child(even) {
+  background: #ebe7de;
+}
+.table-content .roll {
+  width: 4rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ---------- Chat rolls ---------- */
+.vsdsimple-roll {
+  font-family: Ubuntu, sans-serif;
+}
+.vsdsimple-roll .roll-header {
+  margin-bottom: 0.25rem;
+}
+.vsdsimple-roll .roll-total {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+.vsdsimple-roll .roll-total .total {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.vsdsimple-roll .band {
+  font-style: italic;
+  color: #555;
+}
+.vsdsimple-roll .roll-actions {
+  margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .form-two-col,
+  .form-two-col.conditions-defense {
+    grid-template-columns: 1fr;
+  }
+  .form-logo-row {
+    grid-template-columns: 1fr 56px;
+  }
+  .form-logo-row .header-logo { display: none; }
+}

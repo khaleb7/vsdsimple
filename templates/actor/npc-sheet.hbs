@@ -1,0 +1,113 @@
+<div class="npc-sheet vsd-npc-wrapper">
+    <header class="npc-header">
+      <img class="header-logo" src="{{logo}}" alt="VsD" />
+      <div class="npc-identity">
+        <input class="npc-name" name="name" type="text" value="{{actor.name}}" placeholder="Creature Name" />
+        <img class="portrait" src="{{actor.img}}" data-action="editImage" data-edit="img" title="{{actor.name}}" />
+      </div>
+    </header>
+
+    <table class="npc-stat-block">
+      <tbody>
+        <tr>
+          <th>Level</th>
+          <td class="level-cell">
+            <input name="system.level" type="number" value="{{system.level}}" />
+            <input name="system.levelType" type="text" value="{{system.levelType}}" placeholder="Common" />
+          </td>
+        </tr>
+        <tr>
+          <th>MR</th>
+          <td><input name="system.mr" type="text" value="{{system.mr}}" placeholder="17L" /></td>
+        </tr>
+        <tr>
+          <th>AT</th>
+          <td><input name="system.at" type="text" value="{{system.at}}" placeholder="NA" /></td>
+        </tr>
+        <tr>
+          <th><a class="roll-label" data-action="rollField" data-field="def">DEF</a></th>
+          <td><input name="system.def" type="number" value="{{system.def}}" /></td>
+        </tr>
+        <tr>
+          <th><a class="roll-label" data-action="rollField" data-field="tsr">TSR</a></th>
+          <td><input name="system.tsr" type="number" value="{{system.tsr}}" /></td>
+        </tr>
+        <tr>
+          <th><a class="roll-label" data-action="rollField" data-field="wsr">WSR</a></th>
+          <td><input name="system.wsr" type="number" value="{{system.wsr}}" /></td>
+        </tr>
+        <tr>
+          <th>HPs</th>
+          <td class="hp-cell">
+            <input name="system.hp.value" type="number" value="{{system.hp.value}}" title="Current" />
+            <span>/</span>
+            <input name="system.hp.max" type="number" value="{{system.hp.max}}" title="Max" />
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{#unless derived.attacks.first.empty}}
+            <a class="roll-label" data-action="rollAttack" data-slot="first">1st Atk</a>
+            {{else}}
+            1st Atk
+            {{/unless}}
+          </th>
+          <td class="atk-cell">
+            <input name="system.attacks.first.bonus" type="number" value="{{system.attacks.first.bonus}}" placeholder="+" />
+            <input name="system.attacks.first.label" type="text" value="{{system.attacks.first.label}}" placeholder="Medium Claw" />
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{#unless derived.attacks.second.empty}}
+            <a class="roll-label" data-action="rollAttack" data-slot="second">2nd Atk</a>
+            {{else}}
+            2nd Atk
+            {{/unless}}
+          </th>
+          <td class="atk-cell">
+            <input name="system.attacks.second.bonus" type="number" value="{{system.attacks.second.bonus}}" placeholder="+" />
+            <input name="system.attacks.second.label" type="text" value="{{system.attacks.second.label}}" placeholder="—" />
+          </td>
+        </tr>
+        <tr>
+          <th>
+            {{#unless derived.attacks.third.empty}}
+            <a class="roll-label" data-action="rollAttack" data-slot="third">3rd Atk</a>
+            {{else}}
+            3rd Atk
+            {{/unless}}
+          </th>
+          <td class="atk-cell">
+            <input name="system.attacks.third.bonus" type="number" value="{{system.attacks.third.bonus}}" placeholder="+" />
+            <input name="system.attacks.third.label" type="text" value="{{system.attacks.third.label}}" placeholder="—" />
+          </td>
+        </tr>
+        <tr>
+          <th>Special</th>
+          <td><input name="system.special" type="text" value="{{system.special}}" /></td>
+        </tr>
+        <tr>
+          <th>CT</th>
+          <td><input name="system.ct" type="text" value="{{system.ct}}" placeholder="NH" /></td>
+        </tr>
+        <tr>
+          <th><a class="roll-label" data-action="rollField" data-field="rog">Rog</a></th>
+          <td><input name="system.rog" type="number" value="{{system.rog}}" /></td>
+        </tr>
+        <tr>
+          <th><a class="roll-label" data-action="rollField" data-field="adv">Adv</a></th>
+          <td><input name="system.adv" type="number" value="{{system.adv}}" /></td>
+        </tr>
+        <tr>
+          <th><a class="roll-label" data-action="rollField" data-field="lor">Lor</a></th>
+          <td><input name="system.lor" type="number" value="{{system.lor}}" /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="npc-notes">
+      <h3 class="form-section-title">Notes</h3>
+      <textarea name="system.notes" rows="5">{{system.notes}}</textarea>
+    </section>
+  </div>

@@ -1,0 +1,31 @@
+<div class="critical-browser-body">
+  <p class="hint">Open a table or roll d100 to look up a row. Nothing is applied automatically.</p>
+
+  <h3 class="form-section-title">Critical Strikes</h3>
+  <ul class="crit-table-list">
+    {{#each criticals as |t|}}
+    <li>
+      <button type="button" data-action="openTable" data-table-id="{{t.id}}">
+        <i class="fas fa-book"></i> {{t.label}}
+      </button>
+      <button type="button" class="icon" data-action="rollLookup" data-table-id="{{t.id}}" title="Roll d100">
+        <i class="fas fa-dice"></i>
+      </button>
+    </li>
+    {{/each}}
+  </ul>
+
+  <h3 class="form-section-title">Attack Tables</h3>
+  <ul class="crit-table-list">
+    {{#each attacks as |t|}}
+    <li>
+      <button type="button" data-action="openTable" data-table-id="{{t.id}}">
+        <i class="fas fa-crosshairs"></i> {{t.label}}
+      </button>
+      <button type="button" class="icon" data-action="rollLookup" data-table-id="{{t.id}}" title="Roll d100">
+        <i class="fas fa-dice"></i>
+      </button>
+    </li>
+    {{/each}}
+  </ul>
+</div>

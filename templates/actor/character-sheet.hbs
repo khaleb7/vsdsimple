@@ -1,0 +1,357 @@
+<div class="charsheet vsd-form-wrapper">
+    <header class="vsd-form-header">
+      <div class="form-logo-row">
+        <img class="header-logo" src="{{logo}}" alt="Against the Darkmaster" />
+        <div class="form-identity">
+          <div class="form-id-row">
+            <label class="uline-field grow">
+              <input class="actorname" name="name" type="text" value="{{actor.name}}" placeholder="Character Name" />
+              <span>Character Name</span>
+            </label>
+            <label class="uline-field narrow">
+              <input name="system.level" type="number" value="{{system.level}}" />
+              <span>Lvl</span>
+            </label>
+            <label class="uline-field narrow">
+              <input name="system.xp" type="number" value="{{system.xp}}" />
+              <span>XP</span>
+            </label>
+            <label class="uline-field narrow">
+              <input name="system.xpNext" type="number" value="{{system.xpNext}}" />
+              <span>Next Lvl</span>
+            </label>
+          </div>
+          <div class="form-id-row">
+            <label class="uline-field grow">
+              <input name="system.kin" type="text" value="{{system.kin}}" />
+              <span>Kin</span>
+            </label>
+            <label class="uline-field grow">
+              <input name="system.culture" type="text" value="{{system.culture}}" />
+              <span>Culture</span>
+            </label>
+            <label class="uline-field grow">
+              <input name="system.vocation" type="text" value="{{system.vocation}}" />
+              <span>Vocation</span>
+            </label>
+          </div>
+        </div>
+        <img class="portrait" src="{{actor.img}}" data-action="editImage" data-edit="img" title="{{actor.name}}" />
+      </div>
+      <nav class="sheet-nav tabs" data-group="primary">
+        {{#each tabs}}
+        <a class="tabtitle{{#if cssClass}} {{cssClass}}{{/if}}" data-action="tab" data-group="primary" data-tab="{{id}}">{{localize label}}</a>
+        {{/each}}
+      </nav>
+    </header>
+
+    <section class="sheet-body">
+      <div class="tab form-page{{#if tabs.character.active}} active{{/if}}" data-group="primary" data-tab="character">
+        <div class="form-two-col">
+          <div class="form-col left">
+            <section class="form-section">
+              <h3 class="form-section-title">Passions</h3>
+              <div class="form-grid-area">
+                {{#each system.passions as |p i|}}
+                <div class="passion-line">
+                  <label>Passion {{vsdAdd i 1}}</label>
+                  <input name="system.passions.{{i}}" type="text" value="{{p}}" />
+                </div>
+                {{/each}}
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h3 class="form-section-title">Drive Points</h3>
+              <div class="drive-point-markers">
+                {{#vsdTimes 5}}
+                <div class="drive-point" data-action="setDrive" data-value="{{vsdAdd this 1}}" title="{{vsdAdd this 1}}">
+                  <i class="{{#if (vsdLt ../system.pools.drive (vsdAdd this 1))}}far{{else}}fas{{/if}} fa-gem"></i>
+                </div>
+                {{/vsdTimes}}
+                <a class="drive-clear" data-action="setDrive" data-value="0" title="Clear">×</a>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h3 class="form-section-title">Heroic Path</h3>
+              <div class="heroic-path-markers form-heroic">
+                {{#vsdTimes 10}}
+                <div class="heroic-path-point" data-action="setHero" data-value="{{vsdMul (vsdAdd this 1) 10}}" title="{{vsdMul (vsdAdd this 1) 10}}">
+                  <i class="{{#if (vsdLt ../system.pools.hero (vsdMul (vsdAdd this 1) 10))}}far{{else}}fas{{/if}} fa-gem"></i>
+                  <span class="hp-label">{{vsdMul (vsdAdd this 1) 10}}</span>
+                </div>
+                {{/vsdTimes}}
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h3 class="form-section-title">Stats</h3>
+              <div class="form-table stats-table">
+                <div class="form-row header">
+                  <div class="cell name"></div>
+                  <div class="cell">Base</div>
+                  <div class="cell">Kin</div>
+                  <div class="cell">Spec</div>
+                  <div class="cell tot">TOT</div>
+                </div>
+                {{#each derived.stats as |st key|}}
+                <div class="form-row">
+                  <div class="cell name">
+                    <a class="roll-label" data-action="rollStat" data-key="{{key}}">{{st.label}} ({{st.abbr}})</a>
+                  </div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.stats.{{key}}.base" value="{{st.base}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.stats.{{key}}.kin" value="{{st.kin}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.stats.{{key}}.spec" value="{{st.spec}}" /></div>
+                  <div class="cell tot">{{vsdSigned st.total}}</div>
+                </div>
+                {{/each}}
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h3 class="form-section-title">Save Rolls</h3>
+              <div class="form-table saves-table">
+                <div class="form-row header">
+                  <div class="cell name"></div>
+                  <div class="cell">Stat</div>
+                  <div class="cell">Lvl</div>
+                  <div class="cell">Kin</div>
+                  <div class="cell">Spec</div>
+                  <div class="cell tot">TOT</div>
+                </div>
+                <div class="form-row">
+                  <div class="cell name"><a class="roll-label" data-action="rollSave" data-key="tsr">Toughness SR</a></div>
+                  <div class="cell">{{vsdSigned derived.saves.tsr.stat}}</div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.saves.tsr.lvl" value="{{system.saves.tsr.lvl}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.saves.tsr.kin" value="{{system.saves.tsr.kin}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.saves.tsr.spec" value="{{system.saves.tsr.spec}}" /></div>
+                  <div class="cell tot">{{vsdSigned derived.saves.tsr.total}}</div>
+                </div>
+                <div class="form-row">
+                  <div class="cell name"><a class="roll-label" data-action="rollSave" data-key="wsr">Willpower SR</a></div>
+                  <div class="cell">{{vsdSigned derived.saves.wsr.stat}}</div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.saves.wsr.lvl" value="{{system.saves.wsr.lvl}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.saves.wsr.kin" value="{{system.saves.wsr.kin}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.saves.wsr.spec" value="{{system.saves.wsr.spec}}" /></div>
+                  <div class="cell tot">{{vsdSigned derived.saves.wsr.total}}</div>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <h3 class="form-section-title">Special Traits &amp; Backgrounds</h3>
+              <div class="form-grid-area traits-area">
+                {{#each system.traits as |t i|}}
+                <div class="trait-line">
+                  <input name="system.traits.{{i}}" type="text" value="{{t}}" />
+                </div>
+                {{/each}}
+                <div class="trait-line">
+                  <input name="system.traits.{{system.traits.length}}" type="text" value="" placeholder="Add trait…" />
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="form-col right">
+            <section class="form-section skills-section">
+              <h3 class="form-section-title">Skills</h3>
+              <div class="form-table skills-table">
+                <div class="form-row header skill-cols">
+                  <div class="cell name"></div>
+                  <div class="cell">Stat</div>
+                  <div class="cell">#Ranks &amp; Bonus</div>
+                  <div class="cell">Voc</div>
+                  <div class="cell">Kin</div>
+                  <div class="cell">Spec</div>
+                  <div class="cell">Item</div>
+                  <div class="cell tot">TOT</div>
+                </div>
+                {{#each derived.skillCategories as |cat|}}
+                <div class="form-row cat-header">
+                  <div class="cell name">{{cat.label}}</div>
+                </div>
+                {{#each cat.skills as |sk|}}
+                <div class="form-row skill-cols">
+                  <div class="cell name">
+                    <a class="roll-label" data-action="rollSkill" data-key="{{sk.key}}">{{sk.label}}</a>
+                  </div>
+                  <div class="cell">{{vsdSigned sk.statTotal}}</div>
+                  <div class="cell ranks-cell">
+                    <input class="form-col-input ranks-input" type="number" name="system.skills.{{sk.key}}.ranks" value="{{sk.ranks}}" />
+                    <span class="rank-bonus">[{{sk.rankBonus}}]</span>
+                  </div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.skills.{{sk.key}}.voc" value="{{sk.voc}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.skills.{{sk.key}}.kin" value="{{sk.kin}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.skills.{{sk.key}}.spec" value="{{sk.spec}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.skills.{{sk.key}}.item" value="{{sk.item}}" /></div>
+                  <div class="cell tot">{{vsdSigned sk.total}}</div>
+                </div>
+                {{/each}}
+                {{/each}}
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab form-page{{#if tabs.combat.active}} active{{/if}}" data-group="primary" data-tab="combat">
+        <div class="form-top-bar">
+          <div class="hp-block">
+            <h3 class="form-section-title">Hit Points</h3>
+            <div class="hp-fields">
+              <label>
+                <span>Total</span>
+                <input class="boxed" type="number" name="system.pools.hp.max" value="{{system.pools.hp.max}}" />
+              </label>
+              <label>
+                <span>Current</span>
+                <input class="boxed" type="number" name="system.pools.hp.value" value="{{system.pools.hp.value}}" />
+              </label>
+            </div>
+          </div>
+          <div class="wounds-block">
+            <h3 class="form-section-title">Wounds</h3>
+            <div class="hp-fields">
+              <label><span>Bleed</span><span class="boxed readonly">{{derived.woundsBleed}}</span></label>
+              <label><span>Penalties</span><span class="boxed readonly">{{derived.woundsPenalty}}</span></label>
+            </div>
+          </div>
+          <div class="hp-block">
+            <h3 class="form-section-title">Magic Points</h3>
+            <div class="hp-fields">
+              <label>
+                <span>Total</span>
+                <input class="boxed" type="number" name="system.pools.mp.max" value="{{system.pools.mp.max}}" />
+              </label>
+              <label>
+                <span>Current</span>
+                <input class="boxed" type="number" name="system.pools.mp.value" value="{{system.pools.mp.value}}" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-two-col conditions-defense">
+          <section class="form-section">
+            <h3 class="form-section-title">Conditions</h3>
+            <p class="hint">Toggle on the actor/token. No automatic modifiers.</p>
+            <div class="conditions-grid">
+              {{#each statusEffects as |se|}}
+              <label class="condition-toggle{{#if se.active}} inEffect{{/if}}" data-action="toggleStatus" data-status-id="{{se.id}}" title="{{se.label}}">
+                <img src="{{se.img}}" alt="" width="20" height="20" />
+                <span>{{se.label}}</span>
+              </label>
+              {{/each}}
+            </div>
+            <div class="injuries-list">
+              <h4>Injuries <a data-action="addWound"><i class="fas fa-plus"></i></a></h4>
+              {{#each system.wounds as |w i|}}
+              <div class="injury-line">
+                <input type="text" name="system.wounds.{{i}}.name" value="{{w.name}}" placeholder="Injury" />
+                <input type="number" name="system.wounds.{{i}}.bleed" value="{{w.bleed}}" title="Bleed" />
+                <input type="number" name="system.wounds.{{i}}.penalty" value="{{w.penalty}}" title="Penalty" />
+                <input type="text" name="system.wounds.{{i}}.notes" value="{{w.notes}}" placeholder="Notes" />
+                <a data-action="deleteWound" data-index="{{i}}"><i class="fas fa-trash"></i></a>
+              </div>
+              {{/each}}
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h3 class="form-section-title">Defense</h3>
+            <div class="defense-grid">
+              <label class="uline-field">
+                <input name="system.defense.armorType" type="text" value="{{system.defense.armorType}}" />
+                <span>Armor Type</span>
+              </label>
+              <label class="uline-field">
+                <input name="system.defense.moveRate" type="text" value="{{system.defense.moveRate}}" />
+                <span>Move Rate</span>
+              </label>
+              <label class="uline-field">
+                <a class="roll-label" data-action="rollDefense" data-key="meleeDB">Melee DB {{vsdSigned system.defense.meleeDB}}</a>
+                <input name="system.defense.meleeDB" type="number" value="{{system.defense.meleeDB}}" />
+              </label>
+              <label class="uline-field">
+                <a class="roll-label" data-action="rollDefense" data-key="missileDB">Missile DB {{vsdSigned system.defense.missileDB}}</a>
+                <input name="system.defense.missileDB" type="number" value="{{system.defense.missileDB}}" />
+              </label>
+            </div>
+          </section>
+        </div>
+
+        <section class="form-section">
+          <h3 class="form-section-title">Attacks <a data-action="addAttack"><i class="fas fa-plus"></i></a></h3>
+          <div class="form-table attacks-table">
+            <div class="form-row header">
+              <div class="cell name">Weapon</div>
+              <div class="cell">Bonus</div>
+              <div class="cell">Size</div>
+              <div class="cell">Table</div>
+              <div class="cell">Crit</div>
+              <div class="cell"></div>
+            </div>
+            {{#each system.attacks as |atk i|}}
+            <div class="form-row">
+              <div class="cell name">
+                <a class="roll-label" data-action="rollAttack" data-index="{{i}}">{{#if atk.name}}{{atk.name}}{{else}}Attack{{/if}}</a>
+                <input type="text" name="system.attacks.{{i}}.name" value="{{atk.name}}" />
+              </div>
+              <div class="cell"><input class="form-col-input" type="number" name="system.attacks.{{i}}.bonus" value="{{atk.bonus}}" /></div>
+              <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.size" value="{{atk.size}}" /></div>
+              <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.table" value="{{atk.table}}" placeholder="slash" /></div>
+              <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.crit" value="{{atk.crit}}" placeholder="cut" /></div>
+              <div class="cell"><a data-action="deleteAttack" data-index="{{i}}"><i class="fas fa-trash"></i></a></div>
+            </div>
+            {{/each}}
+          </div>
+        </section>
+      </div>
+
+      <div class="tab form-page{{#if tabs.magic.active}} active{{/if}}" data-group="primary" data-tab="magic">
+        <section class="form-section">
+          <h3 class="form-section-title">Spell Lores</h3>
+          <div class="form-table skills-table">
+            <div class="form-row header spell-cols">
+              <div class="cell name"></div>
+              <div class="cell">#Ranks</div>
+              <div class="cell">Voc</div>
+              <div class="cell">Kin</div>
+              <div class="cell">Spec</div>
+              <div class="cell">Item</div>
+              <div class="cell tot">TOT</div>
+            </div>
+            {{#each derived.spellLores as |sl key|}}
+            <div class="form-row spell-cols">
+              <div class="cell name">
+                <a class="roll-label" data-action="rollSpell" data-key="{{key}}">{{sl.label}}</a>
+              </div>
+              <div class="cell ranks-cell">
+                <input class="form-col-input ranks-input" type="number" name="system.spellLores.{{key}}.ranks" value="{{sl.ranks}}" />
+                <span class="rank-bonus">[{{sl.rankBonus}}]</span>
+              </div>
+              <div class="cell"><input class="form-col-input" type="number" name="system.spellLores.{{key}}.voc" value="{{sl.voc}}" /></div>
+              <div class="cell"><input class="form-col-input" type="number" name="system.spellLores.{{key}}.kin" value="{{sl.kin}}" /></div>
+              <div class="cell"><input class="form-col-input" type="number" name="system.spellLores.{{key}}.spec" value="{{sl.spec}}" /></div>
+              <div class="cell"><input class="form-col-input" type="number" name="system.spellLores.{{key}}.item" value="{{sl.item}}" /></div>
+              <div class="cell tot">{{vsdSigned sl.total}}</div>
+            </div>
+            {{/each}}
+          </div>
+        </section>
+      </div>
+
+      <div class="tab form-page{{#if tabs.notes.active}} active{{/if}}" data-group="primary" data-tab="notes">
+        <section class="form-section">
+          <h3 class="form-section-title">Biography</h3>
+          <textarea name="system.biography" rows="8">{{system.biography}}</textarea>
+        </section>
+        <section class="form-section">
+          <h3 class="form-section-title">Notes</h3>
+          <textarea name="system.notes" rows="8">{{system.notes}}</textarea>
+        </section>
+      </div>
+    </section>
+  </div>

@@ -1,0 +1,20 @@
+<div class="vsdsimple-roll">
+  <div class="roll-header">
+    <strong>{{label}}</strong>
+    {{#if actorName}}<span class="actor-name">— {{actorName}}</span>{{/if}}
+  </div>
+  <div class="dice-roll">
+    {{{tooltip}}}
+  </div>
+  <div class="roll-total">
+    <span class="total">{{total}}</span>
+    {{#if band}}<span class="band">{{band}}</span>{{/if}}
+  </div>
+  {{#if table}}
+  <div class="roll-actions">
+    <button type="button" class="open-crit-table" data-table="{{table}}">
+      <i class="fas fa-book-dead"></i> Open {{table}} table
+    </button>
+  </div>
+  {{/if}}
+</div>

@@ -1,0 +1,68 @@
+{
+  "VSDSIMPLE": {
+    "Sheet": {
+      "character": "VsD Character Sheet",
+      "npc": "VsD NPC Stat Block"
+    },
+    "Tabs": {
+      "character": "Character",
+      "combat": "Combat",
+      "magic": "Magic",
+      "notes": "Notes"
+    },
+    "Roll": {
+      "modTitle": "Roll Modifier",
+      "situationalMod": "Situational Modifier",
+      "roll": "Roll",
+      "band": {
+        "blunder": "Blunder",
+        "failure": "Failure",
+        "partial": "Partial Success",
+        "success": "Success",
+        "absolute": "Absolute Success"
+      }
+    },
+    "Crit": {
+      "browser": "Critical Tables",
+      "table": "Critical Table",
+      "lookup": "Critical Lookup"
+    },
+    "Conditions": {
+      "bruised": "Bruised",
+      "weary": "Weary",
+      "incapacitated": "Incapacitated",
+      "dying": "Dying",
+      "bleeding": "Bleeding",
+      "blind": "Blinded",
+      "deaf": "Deafened",
+      "mute": "Silenced",
+      "burning": "Burning",
+      "diseased": "Diseased",
+      "freezing": "Freezing",
+      "poisoned": "Poisoned",
+      "healing": "Healing",
+      "engaged": "Engaged",
+      "shielded": "Shielded",
+      "stealthy": "Stealthy",
+      "defeated": "Defeated",
+      "held": "Held",
+      "stunned": "Stunned",
+      "surprised": "Surprised",
+      "frightened": "Frightened",
+      "concentrating": "Concentrating",
+      "aiming": "Aiming",
+      "loading": "Loading",
+      "crippled": "Crippled",
+      "charging": "Charging",
+      "flanking": "Flanking",
+      "full_half": "Full / Half",
+      "on_rear": "On Rear",
+      "encumbered": "Encumbered"
+    },
+    "Postures": {
+      "prone": "Prone",
+      "flying": "Flying",
+      "swimming": "Swimming"
+    }
+  }
+}
