@@ -140,16 +140,14 @@
             </section>
 
             <section class="form-section">
-              <h3 class="form-section-title">Special Traits &amp; Backgrounds</h3>
+              <h3 class="form-section-title">Special Traits &amp; Backgrounds <a data-action="addTrait" title="Add trait"><i class="fas fa-plus"></i></a></h3>
               <div class="form-grid-area traits-area">
                 {{#each system.traits as |t i|}}
                 <div class="trait-line">
-                  <input name="system.traits.{{i}}" type="text" value="{{t}}" />
+                  <input name="system.traits.{{i}}" type="text" value="{{t}}" placeholder="Trait" />
+                  <a data-action="deleteTrait" data-index="{{i}}" title="Remove"><i class="fas fa-trash"></i></a>
                 </div>
                 {{/each}}
-                <div class="trait-line">
-                  <input name="system.traits.{{system.traits.length}}" type="text" value="" placeholder="Add trait…" />
-                </div>
               </div>
             </section>
           </div>

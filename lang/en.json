@@ -8,7 +8,8 @@
       "character": "Character",
       "combat": "Combat",
       "magic": "Magic",
-      "notes": "Notes"
+      "notes": "Notes",
+      "stats": "Stat Block"
     },
     "Roll": {
       "modTitle": "Roll Modifier",
@@ -23,9 +24,14 @@
       }
     },
     "Crit": {
-      "browser": "Critical Tables",
-      "table": "Critical Table",
-      "lookup": "Critical Lookup"
+      "browser": "Combat Tables",
+      "table": "Table",
+      "lookup": "Table Lookup",
+      "hitCharts": "Combat Hit Charts",
+      "hitChartsHint": "Attack results by armor (NA / LA / MA / HA)",
+      "critCharts": "Critical Strikes",
+      "openHitCharts": "Hit Charts",
+      "allTables": "All Tables"
     },
     "Conditions": {
       "bruised": "Bruised",
@@ -69,6 +75,9 @@
       "autoImportHint": "When enabled, creates NPC actors from the bundled bestiary the first time this world is opened by a GM.",
       "importMenu": "Import Bestiary",
       "importButton": "Import Monsters",
+      "importNew": "Import (skip existing)",
+      "importForce": "Import & update existing",
+      "cancel": "Cancel",
       "importHint": "Create (or refresh) NPC actors from the bundled Against the Darkmaster bestiary into an Actor folder named VsD Bestiary.",
       "forceUpdate": "Update existing monsters with the same name",
       "gmOnly": "Only a GM can import the bestiary.",

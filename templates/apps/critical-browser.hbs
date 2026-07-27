@@ -1,12 +1,13 @@
 <div class="critical-browser-body">
   <p class="hint">Open a table or roll d100 to look up a row. Nothing is applied automatically.</p>
 
-  <h3 class="form-section-title">Critical Strikes</h3>
+  <h3 class="form-section-title hit-charts-section">{{localize "VSDSIMPLE.Crit.hitCharts"}}</h3>
+  <p class="hint">{{localize "VSDSIMPLE.Crit.hitChartsHint"}}</p>
   <ul class="crit-table-list">
-    {{#each criticals as |t|}}
+    {{#each attacks as |t|}}
     <li>
       <button type="button" data-action="openTable" data-table-id="{{t.id}}">
-        <i class="fas fa-book"></i> {{t.label}}
+        <i class="fas fa-shield-halved"></i> {{t.label}}
       </button>
       <button type="button" class="icon" data-action="rollLookup" data-table-id="{{t.id}}" title="Roll d100">
         <i class="fas fa-dice"></i>
@@ -15,12 +16,12 @@
     {{/each}}
   </ul>
 
-  <h3 class="form-section-title">Attack Tables</h3>
+  <h3 class="form-section-title">{{localize "VSDSIMPLE.Crit.critCharts"}}</h3>
   <ul class="crit-table-list">
-    {{#each attacks as |t|}}
+    {{#each criticals as |t|}}
     <li>
       <button type="button" data-action="openTable" data-table-id="{{t.id}}">
-        <i class="fas fa-crosshairs"></i> {{t.label}}
+        <i class="fas fa-book-dead"></i> {{t.label}}
       </button>
       <button type="button" class="icon" data-action="rollLookup" data-table-id="{{t.id}}" title="Roll d100">
         <i class="fas fa-dice"></i>

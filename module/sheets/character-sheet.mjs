@@ -35,6 +35,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       deleteAttack: CharacterSheet.#onDeleteAttack,
       addWound: CharacterSheet.#onAddWound,
       deleteWound: CharacterSheet.#onDeleteWound,
+      addTrait: CharacterSheet.#onAddTrait,
+      deleteTrait: CharacterSheet.#onDeleteTrait,
       setDrive: CharacterSheet.#onSetDrive,
       setHero: CharacterSheet.#onSetHero,
       openCrits: CharacterSheet.#onOpenCrits,
@@ -129,6 +131,45 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       }));
   }
 
+  /**
+   * Prevent ArrayField resurrection from stale form submits after deletes,
+   * and strip empty trait strings.
+   * @override
+   */
+  _prepareSubmitData(event, form, formData) {
+    const submitData = super._prepareSubmitData(event, form, formData);
+
+    if (this._ignoreArraySubmit) {
+      foundry.utils.deleteProperty(submitData, "system.attacks");
+      foundry.utils.deleteProperty(submitData, "system.wounds");
+      foundry.utils.deleteProperty(submitData, "system.traits");
+      return submitData;
+    }
+
+    const traits = foundry.utils.getProperty(submitData, "system.traits");
+    if (Array.isArray(traits)) {
+      foundry.utils.setProperty(
+        submitData,
+        "system.traits",
+        traits.filter((t) => String(t ?? "").trim().length > 0)
+      );
+    }
+
+    return submitData;
+  }
+
+  async #updateArrayField(path, next) {
+    this._ignoreArraySubmit = true;
+    try {
+      await this.document.update({ [path]: next });
+    } finally {
+      // Allow form submits again after the sheet re-renders with new indices
+      setTimeout(() => {
+        this._ignoreArraySubmit = false;
+      }, 250);
+    }
+  }
+
   static async #onRollStat(event, target) {
     const key = target.dataset.key;
     const actor = this.document;
@@ -195,27 +236,43 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onAddAttack() {
     const attacks = foundry.utils.deepClone(this.document.system.attacks);
     attacks.push({ name: "", bonus: 0, size: "", table: "", crit: "" });
-    await this.document.update({ "system.attacks": attacks });
+    await this.#updateArrayField("system.attacks", attacks);
   }
 
   static async #onDeleteAttack(event, target) {
+    event?.preventDefault?.();
     const index = Number(target.dataset.index);
     const attacks = foundry.utils.deepClone(this.document.system.attacks);
     attacks.splice(index, 1);
-    await this.document.update({ "system.attacks": attacks });
+    await this.#updateArrayField("system.attacks", attacks);
   }
 
   static async #onAddWound() {
     const wounds = foundry.utils.deepClone(this.document.system.wounds);
     wounds.push({ name: "", bleed: 0, penalty: 0, notes: "" });
-    await this.document.update({ "system.wounds": wounds });
+    await this.#updateArrayField("system.wounds", wounds);
   }
 
   static async #onDeleteWound(event, target) {
+    event?.preventDefault?.();
     const index = Number(target.dataset.index);
     const wounds = foundry.utils.deepClone(this.document.system.wounds);
     wounds.splice(index, 1);
-    await this.document.update({ "system.wounds": wounds });
+    await this.#updateArrayField("system.wounds", wounds);
+  }
+
+  static async #onAddTrait() {
+    const traits = foundry.utils.deepClone(this.document.system.traits ?? []);
+    traits.push("");
+    await this.#updateArrayField("system.traits", traits);
+  }
+
+  static async #onDeleteTrait(event, target) {
+    event?.preventDefault?.();
+    const index = Number(target.dataset.index);
+    const traits = foundry.utils.deepClone(this.document.system.traits ?? []);
+    traits.splice(index, 1);
+    await this.#updateArrayField("system.traits", traits);
   }
 
   static async #onSetDrive(event, target) {

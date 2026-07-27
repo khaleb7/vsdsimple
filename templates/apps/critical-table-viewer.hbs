@@ -3,6 +3,19 @@
     <button type="button" data-action="rollLookup">
       <i class="fas fa-dice"></i> Roll d100
     </button>
+    {{#if isCritical}}
+    <button type="button" data-action="openHitCharts">
+      <i class="fas fa-shield-halved"></i> {{localize "VSDSIMPLE.Crit.openHitCharts"}}
+    </button>
+    {{/if}}
+    {{#if isAttack}}
+    <button type="button" data-action="openCritCharts">
+      <i class="fas fa-book-dead"></i> {{localize "VSDSIMPLE.Crit.critCharts"}}
+    </button>
+    {{/if}}
+    <button type="button" data-action="openBrowser">
+      <i class="fas fa-list"></i> {{localize "VSDSIMPLE.Crit.allTables"}}
+    </button>
     <span class="table-name">{{table.label}}</span>
   </div>
   <div class="table-content">

@@ -196,6 +196,10 @@
   background: transparent;
   color: inherit;
 }
+.trait-line a {
+  color: #666;
+  flex: 0 0 auto;
+}
 
 .drive-point-markers {
   display: flex;
@@ -491,6 +495,22 @@
   font-size: 13px;
   padding: 0.5rem;
 }
+.vsd-npc-wrapper .sheet-nav {
+  margin-bottom: 0.5rem;
+}
+.vsd-npc-wrapper .sheet-body {
+  max-height: calc(100% - 120px);
+  overflow: auto;
+}
+.vsd-npc-wrapper .tab.form-page {
+  display: none;
+}
+.vsd-npc-wrapper .tab.form-page.active {
+  display: block;
+}
+.vsd-npc-wrapper .npc-notes textarea {
+  min-height: 18rem;
+}
 
 .npc-header {
   display: flex;
@@ -616,10 +636,16 @@
 .table-toolbar {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
   padding: 0.35rem 0.5rem;
   border-bottom: 1px solid #c8c4bb;
   background: #e5e1d7;
+  flex-wrap: wrap;
+}
+.table-toolbar .table-name {
+  margin-left: auto;
+  font-weight: bold;
+  font-variant: small-caps;
 }
 .table-content {
   overflow: auto;
@@ -627,28 +653,85 @@
   padding: 0.5rem;
   background: #f7f5f0;
 }
-.table-content .criticalstrikestable {
+.table-content .criticalstrikestable,
+.table-content .attacktable {
   width: 100%;
   border-collapse: collapse;
   font-family: Ubuntu, sans-serif;
   font-size: 12px;
 }
 .table-content .criticalstrikestable td,
-.table-content .criticalstrikestable th {
+.table-content .criticalstrikestable th,
+.table-content .attacktable td,
+.table-content .attacktable th {
   border: 1px solid #c8c4bb;
   padding: 0.25rem 0.4rem;
 }
 .table-content .tableheaderrow {
-  background: #cfcabe;
+  background: #3d3428;
+  color: #f3ead8;
   font-weight: bold;
+}
+.table-content .tableheaderrow td {
+  color: #f3ead8;
+  text-align: center;
 }
 .table-content .tablerow:nth-child(even) {
   background: #ebe7de;
 }
 .table-content .roll {
-  width: 4rem;
+  width: 4.5rem;
   text-align: center;
   white-space: nowrap;
+}
+.table-content .result-na,
+.table-content .result-la,
+.table-content .result-ma,
+.table-content .result-ha,
+.table-content .result {
+  text-align: center;
+  min-width: 3rem;
+}
+.table-content .resultdescription {
+  text-align: left;
+}
+
+.table-content .rollable,
+.table-content tr.rollable,
+.table-content td.rollable {
+  cursor: pointer;
+}
+.table-content .rollable:hover,
+.table-content tr.rollable:hover,
+.table-content td.rollable:hover {
+  background: #ddd4c4 !important;
+  outline: 1px solid #8a8170;
+}
+
+.vsdsimple-table-chat .table-result {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.25rem 0;
+  font-size: 0.9em;
+}
+.vsdsimple-table-chat .table-result td {
+  padding: 0.15rem 0.35rem;
+  border-bottom: 1px solid #ddd;
+}
+.vsdsimple-table-chat .table-result td:first-child {
+  font-weight: bold;
+  width: 4.5rem;
+  color: #555;
+}
+.vsdsimple-table-chat .damageresult,
+.vsdsimple-table-chat .critseverity,
+.vsdsimple-table-chat .critresult {
+  margin: 0.35rem 0 0;
+}
+.vsdsimple-table-chat .crit-meta {
+  font-size: 0.9em;
+  color: #555;
+  margin: 0.15rem 0 0;
 }
 
 /* ---------- Chat rolls ---------- */

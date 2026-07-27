@@ -44,16 +44,36 @@ class BestiaryImportMenu extends FormApplication {
   /** @override */
   async render() {
     const importedVersion = game.settings.get(SYSTEM_ID, FLAG_KEY);
-    const force = await foundry.applications.api.DialogV2.confirm({
+    const choice = await foundry.applications.api.DialogV2.wait({
       window: { title: game.i18n.localize("VSDSIMPLE.Bestiary.importMenu") },
       content: `<p>${game.i18n.localize("VSDSIMPLE.Bestiary.importHint")}</p>
-        <p class="hint">Imported version: ${importedVersion} / current: ${BESTIARY_VERSION}</p>
-        <p>${game.i18n.localize("VSDSIMPLE.Bestiary.forceUpdate")}?</p>`,
-      yes: { label: game.i18n.localize("VSDSIMPLE.Bestiary.importButton") },
-      no: { label: "Cancel" }
+        <p class="hint">Imported version: ${importedVersion} / current: ${BESTIARY_VERSION}</p>`,
+      buttons: [
+        {
+          action: "import",
+          label: game.i18n.localize("VSDSIMPLE.Bestiary.importNew"),
+          icon: "fas fa-file-import",
+          default: true,
+          callback: () => "import"
+        },
+        {
+          action: "force",
+          label: game.i18n.localize("VSDSIMPLE.Bestiary.importForce"),
+          icon: "fas fa-sync",
+          callback: () => "force"
+        },
+        {
+          action: "cancel",
+          label: game.i18n.localize("VSDSIMPLE.Bestiary.cancel"),
+          icon: "fas fa-times",
+          callback: () => "cancel"
+        }
+      ],
+      rejectClose: false
     });
-    if (force === null) return this;
-    await importBestiary({ force: !!force, notify: true });
+
+    if (!choice || choice === "cancel") return this;
+    await importBestiary({ force: choice === "force", notify: true });
     return this;
   }
 

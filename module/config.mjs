@@ -81,25 +81,25 @@ export const SPELL_LORES = [
 ];
 
 export const CRITICAL_TABLES = [
-  { id: "cut", label: "Cut", file: "cut.html", folder: "critical" },
-  { id: "pierce", label: "Pierce", file: "pierce.html", folder: "critical" },
-  { id: "impact", label: "Impact", file: "impact.html", folder: "critical" },
-  { id: "grapple", label: "Grapple", file: "grapple.html", folder: "critical" },
-  { id: "beast", label: "Beast", file: "beast.html", folder: "critical" },
-  { id: "fire", label: "Fire", file: "fire.html", folder: "critical" },
-  { id: "frost", label: "Frost", file: "frost.html", folder: "critical" },
-  { id: "lightning", label: "Lightning", file: "lightning.html", folder: "critical" },
-  { id: "darkmagic", label: "Dark Magic", file: "darkmagic.html", folder: "critical" }
+  { id: "cut", label: "Cut", file: "cut.html", folder: "critical", kind: "critical" },
+  { id: "pierce", label: "Pierce", file: "pierce.html", folder: "critical", kind: "critical" },
+  { id: "impact", label: "Impact", file: "impact.html", folder: "critical", kind: "critical" },
+  { id: "grapple", label: "Grapple", file: "grapple.html", folder: "critical", kind: "critical" },
+  { id: "beast", label: "Beast", file: "beast.html", folder: "critical", kind: "critical" },
+  { id: "fire", label: "Fire", file: "fire.html", folder: "critical", kind: "critical" },
+  { id: "frost", label: "Frost", file: "frost.html", folder: "critical", kind: "critical" },
+  { id: "lightning", label: "Lightning", file: "lightning.html", folder: "critical", kind: "critical" },
+  { id: "darkmagic", label: "Dark Magic", file: "darkmagic.html", folder: "critical", kind: "critical" }
 ];
 
 export const ATTACK_TABLES = [
-  { id: "edged", label: "Edged", file: "edged.html", folder: "attacks" },
-  { id: "blunt", label: "Blunt", file: "blunt.html", folder: "attacks" },
-  { id: "missile", label: "Missile", file: "missile.html", folder: "attacks" },
-  { id: "unarmed", label: "Unarmed", file: "unarmed.html", folder: "attacks" },
-  { id: "beast_atk", label: "Beast Attacks", file: "beast.html", folder: "attacks" },
-  { id: "bolt", label: "Bolt Spells", file: "bolt-spells.html", folder: "attacks" },
-  { id: "area", label: "Area Spells", file: "area-spells.html", folder: "attacks" }
+  { id: "edged", label: "Edged", file: "edged.html", folder: "attacks", kind: "attack" },
+  { id: "blunt", label: "Blunt", file: "blunt.html", folder: "attacks", kind: "attack" },
+  { id: "missile", label: "Missile", file: "missile.html", folder: "attacks", kind: "attack" },
+  { id: "unarmed", label: "Unarmed", file: "unarmed.html", folder: "attacks", kind: "attack" },
+  { id: "beast_atk", label: "Beast", file: "beast.html", folder: "attacks", kind: "attack" },
+  { id: "bolt", label: "Bolt Spells", file: "bolt-spells.html", folder: "attacks", kind: "attack" },
+  { id: "area", label: "Area Spells", file: "area-spells.html", folder: "attacks", kind: "attack" }
 ];
 
 /** All openable tables (crits + attacks). */
