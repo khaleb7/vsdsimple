@@ -1,0 +1,1001 @@
+[
+  {
+    "id": "bandit",
+    "name": "Bandit",
+    "system": {
+      "level": 4,
+      "levelType": "Common",
+      "mr": "15L",
+      "at": "LAs",
+      "def": 25,
+      "tsr": 25,
+      "wsr": 20,
+      "hp": {
+        "value": 70,
+        "max": 70
+      },
+      "attacks": {
+        "first": {
+          "bonus": 70,
+          "label": "Weapon"
+        },
+        "second": {
+          "bonus": 50,
+          "label": "Ranged"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "",
+      "ct": "NH",
+      "rog": 20,
+      "adv": 30,
+      "lor": 0,
+      "notes": "Men can be valiant defenders of Light, but some of them easily fall under the sway of Darkness.\nType: Evil Man\nCore Rules p298"
+    }
+  },
+  {
+    "id": "dark-elf",
+    "name": "Dark Elf",
+    "system": {
+      "level": 8,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "LAs",
+      "def": 70,
+      "tsr": 50,
+      "wsr": 60,
+      "hp": {
+        "value": 90,
+        "max": 90
+      },
+      "attacks": {
+        "first": {
+          "bonus": 100,
+          "label": "Ranged"
+        },
+        "second": {
+          "bonus": 90,
+          "label": "Weapon"
+        },
+        "third": {
+          "bonus": 0,
+          "label": "Spells"
+        }
+      },
+      "special": "Keen Senses, Immortal, Spells",
+      "ct": "NH",
+      "rog": 90,
+      "adv": 50,
+      "lor": 60,
+      "notes": "Unseelie are just like elves, but dark and terrible in their cold beauty.\nType: Unseelie\nCore Rules p331"
+    }
+  },
+  {
+    "id": "dark-mage",
+    "name": "Dark Mage",
+    "system": {
+      "level": 10,
+      "levelType": "Antagonist",
+      "mr": "15L",
+      "at": "LA",
+      "def": 10,
+      "tsr": 65,
+      "wsr": 70,
+      "hp": {
+        "value": 65,
+        "max": 65
+      },
+      "attacks": {
+        "first": {
+          "bonus": 65,
+          "label": "Weapon"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Spells",
+      "ct": "NH",
+      "rog": 50,
+      "adv": 40,
+      "lor": 100,
+      "notes": "Men can be valiant defenders of Light, but some of them easily fall under the sway of Darkness.\nType: Evil Man\nCore Rules p298"
+    }
+  },
+  {
+    "id": "dark-orc-chieftain",
+    "name": "Dark Orc Chieftain",
+    "system": {
+      "level": 7,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "MAs",
+      "def": 40,
+      "tsr": 65,
+      "wsr": 35,
+      "hp": {
+        "value": 100,
+        "max": 100
+      },
+      "attacks": {
+        "first": {
+          "bonus": 100,
+          "label": "Weapon"
+        },
+        "second": {
+          "bonus": 75,
+          "label": "Ranged"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Varies",
+      "ct": "NH",
+      "rog": 40,
+      "adv": 40,
+      "lor": 0,
+      "notes": "Orc Chieftains are powerfully built individuals, muscular even by dark orcs\u2019 standards.\nType: Orc\nCore Rules p318"
+    }
+  },
+  {
+    "id": "dark-troll-overseer",
+    "name": "Dark Troll Overseer",
+    "system": {
+      "level": 6,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "LA",
+      "def": 10,
+      "tsr": 75,
+      "wsr": 15,
+      "hp": {
+        "value": 150,
+        "max": 150
+      },
+      "attacks": {
+        "first": {
+          "bonus": 90,
+          "label": "Large Claw"
+        },
+        "second": {
+          "bonus": 80,
+          "label": "Weapon"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Night Sight, Hulking Brute, Feral Predator, Sun Cursed",
+      "ct": "HH",
+      "rog": 30,
+      "adv": 40,
+      "lor": 0,
+      "notes": "Huge, brutal warriors with a penchant for violence.\nType: Troll\nCore Rules p328"
+    }
+  },
+  {
+    "id": "dire-bear",
+    "name": "Dire Bear",
+    "system": {
+      "level": 7,
+      "levelType": "Elite",
+      "mr": "24L",
+      "at": "LA",
+      "def": 40,
+      "tsr": 60,
+      "wsr": 35,
+      "hp": {
+        "value": 250,
+        "max": 250
+      },
+      "attacks": {
+        "first": {
+          "bonus": 95,
+          "label": "Large Grapple"
+        },
+        "second": {
+          "bonus": 100,
+          "label": "Large Bite"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "",
+      "ct": "HB",
+      "rog": 10,
+      "adv": 60,
+      "lor": 0,
+      "notes": "Type: Wild Beast\nCore Rules p336"
+    }
+  },
+  {
+    "id": "draugr",
+    "name": "Draugr",
+    "system": {
+      "level": 7,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "MA",
+      "def": 40,
+      "tsr": 50,
+      "wsr": 35,
+      "hp": {
+        "value": 95,
+        "max": 95
+      },
+      "attacks": {
+        "first": {
+          "bonus": 90,
+          "label": "Weapon"
+        },
+        "second": {
+          "bonus": 80,
+          "label": "Large Claw"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Stench of Decay, Tremendous Strength",
+      "ct": "HH",
+      "rog": 30,
+      "adv": 70,
+      "lor": 0,
+      "notes": "Hideously grotesque undead grown from ghouls that consume their own kind.\nType: Draugr\nSource: Core Rules (Ghoul entry)"
+    }
+  },
+  {
+    "id": "dwergar-warrior",
+    "name": "Dwergar Warrior",
+    "system": {
+      "level": 5,
+      "levelType": "Common",
+      "mr": "14L",
+      "at": "ME",
+      "def": 45,
+      "tsr": 60,
+      "wsr": 40,
+      "hp": {
+        "value": 85,
+        "max": 85
+      },
+      "attacks": {
+        "first": {
+          "bonus": 90,
+          "label": "Weapon"
+        },
+        "second": {
+          "bonus": 60,
+          "label": "Ranged"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Night Sight, Forgekin",
+      "ct": "NH",
+      "rog": 40,
+      "adv": 30,
+      "lor": 15,
+      "notes": "Stocky and muscular dwarves with rough, fierce features and greyish to pale skin.\nType: Dwergar\nCore Rules p296"
+    }
+  },
+  {
+    "id": "fellwing",
+    "name": "Fellwing",
+    "system": {
+      "level": 12,
+      "levelType": "Elite",
+      "mr": "50F or 10L",
+      "at": "ME",
+      "def": 40,
+      "tsr": 75,
+      "wsr": 50,
+      "hp": {
+        "value": 200,
+        "max": 200
+      },
+      "attacks": {
+        "first": {
+          "bonus": 100,
+          "label": "Large Bite"
+        },
+        "second": {
+          "bonus": 70,
+          "label": "Large Claw"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Night Sight, Swoop Attack",
+      "ct": "HB",
+      "rog": 40,
+      "adv": 60,
+      "lor": 0,
+      "notes": "Fellwing are huge winged beasts with great leathery wings, long curved necks, and cruel, serrated beaks.\nType: Fellwing\nCore Rules p301"
+    }
+  },
+  {
+    "id": "fire-drake",
+    "name": "Fire Drake",
+    "system": {
+      "level": 25,
+      "levelType": "Antagonist",
+      "mr": "55F or 18L",
+      "at": "HE",
+      "def": 40,
+      "tsr": 125,
+      "wsr": 125,
+      "hp": {
+        "value": 450,
+        "max": 450
+      },
+      "attacks": {
+        "first": {
+          "bonus": 175,
+          "label": "Colossal Bite"
+        },
+        "second": {
+          "bonus": 150,
+          "label": "Huge Claw"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Terrifying Presence, Elemental Resistance, Draconic Might, Heightened Senses, Ferocity, Overwhelming, Dragon\u2019s Breath",
+      "ct": "EB",
+      "rog": 120,
+      "adv": 110,
+      "lor": 100,
+      "notes": "Dragons are the stuff of legend; few other creatures inspire the same level of awe and terror, and fewer still would even think of challenging one.\nType: Dragon\nCore Rules p290"
+    }
+  },
+  {
+    "id": "ghoul",
+    "name": "Ghoul",
+    "system": {
+      "level": 4,
+      "levelType": "Common",
+      "mr": "17L",
+      "at": "NA",
+      "def": 35,
+      "tsr": 40,
+      "wsr": 10,
+      "hp": {
+        "value": 60,
+        "max": 60
+      },
+      "attacks": {
+        "first": {
+          "bonus": 80,
+          "label": "Medium Claw"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Infected, Unliving, Darkvision",
+      "ct": "NH",
+      "rog": 40,
+      "adv": 30,
+      "lor": 0,
+      "notes": "Cursed with eternal hunger, these ravenous unliving predators stalk tombs, necropoli, and other burial sites in search of their next prey.\nType: Ghoul\nCore Rules p302"
+    }
+  },
+  {
+    "id": "giant-eagle",
+    "name": "Giant Eagle",
+    "system": {
+      "level": 15,
+      "levelType": "Antagonist",
+      "mr": "60F or 10L",
+      "at": "NA",
+      "def": 40,
+      "tsr": 100,
+      "wsr": 80,
+      "hp": {
+        "value": 180,
+        "max": 180
+      },
+      "attacks": {
+        "first": {
+          "bonus": 110,
+          "label": "Huge"
+        },
+        "second": {
+          "bonus": 70,
+          "label": "Huge Beak"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Swoop Attack, Overwhelming",
+      "ct": "EB",
+      "rog": 80,
+      "adv": 100,
+      "lor": 60,
+      "notes": "Huge, majestic eagles that nest atop the highest mountains.\nType: Giant Eagle\nCore Rules p308"
+    }
+  },
+  {
+    "id": "gorcrow",
+    "name": "Gorcrow",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "21F or 3L",
+      "at": "NA",
+      "def": 50,
+      "tsr": 0,
+      "wsr": 0,
+      "hp": {
+        "value": 15,
+        "max": 15
+      },
+      "attacks": {
+        "first": {
+          "bonus": 25,
+          "label": "Small"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 40,
+      "adv": 20,
+      "lor": 0,
+      "notes": "Gorcrows are great, evil ravens.\nType: Gorcrow\nCore Rules p312"
+    }
+  },
+  {
+    "id": "great-cat",
+    "name": "Great Cat",
+    "system": {
+      "level": 4,
+      "levelType": "Common",
+      "mr": "30L",
+      "at": "NA",
+      "def": 40,
+      "tsr": 20,
+      "wsr": 10,
+      "hp": {
+        "value": 100,
+        "max": 100
+      },
+      "attacks": {
+        "first": {
+          "bonus": 60,
+          "label": "Medium Claw"
+        },
+        "second": {
+          "bonus": 60,
+          "label": "Medium Bite"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Pounce",
+      "ct": "NB",
+      "rog": 50,
+      "adv": 40,
+      "lor": 0,
+      "notes": "Type: Wild Beast\nCore Rules p336"
+    }
+  },
+  {
+    "id": "kraken",
+    "name": "Kraken",
+    "system": {
+      "level": 15,
+      "levelType": "Antagonist",
+      "mr": "24S",
+      "at": "LA",
+      "def": 50,
+      "tsr": 90,
+      "wsr": 75,
+      "hp": {
+        "value": 150,
+        "max": 150
+      },
+      "attacks": {
+        "first": {
+          "bonus": 75,
+          "label": "Large Grapple (x6)"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Camouflage, Writhing Tentacles, Coiling Arms, Overwhelming,",
+      "ct": "EB",
+      "rog": 20,
+      "adv": 70,
+      "lor": 0,
+      "notes": "A Kraken is a colossal, tentacled beast that looks like something out of a sailor\u2019s fevered nightmare.\nType: Kraken\nCore Rules p313"
+    }
+  },
+  {
+    "id": "lesser-giant",
+    "name": "Lesser Giant",
+    "system": {
+      "level": 9,
+      "levelType": "Elite",
+      "mr": "20L",
+      "at": "LA",
+      "def": 30,
+      "tsr": 70,
+      "wsr": 30,
+      "hp": {
+        "value": 190,
+        "max": 190
+      },
+      "attacks": {
+        "first": {
+          "bonus": 120,
+          "label": "Large Trample"
+        },
+        "second": {
+          "bonus": 100,
+          "label": "Ranged"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Boulder, Overwhelming, Bestial",
+      "ct": "EH",
+      "rog": 20,
+      "adv": 60,
+      "lor": 15,
+      "notes": "Huge reclusive humanoids averaging 6 m tall.\nType: Giant\nCore Rules p306"
+    }
+  },
+  {
+    "id": "lesser-giant-spider",
+    "name": "Lesser Giant Spider",
+    "system": {
+      "level": 5,
+      "levelType": "Common",
+      "mr": "18L",
+      "at": "LA",
+      "def": 40,
+      "tsr": 40,
+      "wsr": 30,
+      "hp": {
+        "value": 70,
+        "max": 70
+      },
+      "attacks": {
+        "first": {
+          "bonus": 90,
+          "label": "Large Bite"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Darkvision, Poison, Jump, Adherence",
+      "ct": "NB",
+      "rog": 60,
+      "adv": 50,
+      "lor": 10,
+      "notes": "Giant Spiders are ancient, wicked monstrosities infesting the dark corners of creation.\nType: Giant Spider\nCore Rules p310"
+    }
+  },
+  {
+    "id": "nightmare",
+    "name": "Nightmare",
+    "system": {
+      "level": 9,
+      "levelType": "Elite",
+      "mr": "50L",
+      "at": "LA",
+      "def": 50,
+      "tsr": 65,
+      "wsr": 65,
+      "hp": {
+        "value": 210,
+        "max": 210
+      },
+      "attacks": {
+        "first": {
+          "bonus": 110,
+          "label": "Large Trample"
+        },
+        "second": {
+          "bonus": 90,
+          "label": "Medium Bite"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Darkvision, Cold Breath, Frightening",
+      "ct": "HB",
+      "rog": 45,
+      "adv": 70,
+      "lor": 0,
+      "notes": "A Nightmare is a supernatural creature closely resembling a big, black horse with fierce glowing eyes.\nType: Nightmare\nCore Rules p316"
+    }
+  },
+  {
+    "id": "orc-soldier",
+    "name": "Orc Soldier",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "15L",
+      "at": "LAs",
+      "def": 30,
+      "tsr": 40,
+      "wsr": 5,
+      "hp": {
+        "value": 60,
+        "max": 60
+      },
+      "attacks": {
+        "first": {
+          "bonus": 60,
+          "label": "Weapon"
+        },
+        "second": {
+          "bonus": 45,
+          "label": "Ranged"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Night Sight, Flame Hardened, Sun Sensitivity",
+      "ct": "NH",
+      "rog": 30,
+      "adv": 20,
+      "lor": 0,
+      "notes": "Even when not directly serving the Darkmaster, orcs are regarded as traditional enemies by many of the Free Kins.\nType: Orc\nCore Rules p318"
+    }
+  },
+  {
+    "id": "redcap",
+    "name": "Redcap",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "17L",
+      "at": "NA",
+      "def": 25,
+      "tsr": 30,
+      "wsr": -5,
+      "hp": {
+        "value": 35,
+        "max": 35
+      },
+      "attacks": {
+        "first": {
+          "bonus": 35,
+          "label": "Weapon"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Night Sight, Tough",
+      "ct": "NH",
+      "rog": 25,
+      "adv": 10,
+      "lor": 0,
+      "notes": "Redcaps are diminutive humanoids with ashen skin, yellow eyes, and pointy teeth, often found among the ranks of the Darkmaster\u2019s armies.\nType: Redcap\nCore Rules p321"
+    }
+  },
+  {
+    "id": "skeleton",
+    "name": "Skeleton",
+    "system": {
+      "level": 1,
+      "levelType": "Common",
+      "mr": "14L",
+      "at": "NAs",
+      "def": 20,
+      "tsr": 25,
+      "wsr": -10,
+      "hp": {
+        "value": 25,
+        "max": 25
+      },
+      "attacks": {
+        "first": {
+          "bonus": 30,
+          "label": "Weapon"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Unliving, Darkvision, Mindless, Undying",
+      "ct": "NH",
+      "rog": 0,
+      "adv": 0,
+      "lor": 0,
+      "notes": "Animated Skeletons are the remains of long fallen warriors, forced to rise and fight again by some unholy power.\nType: Skeleton\nCore Rules p322"
+    }
+  },
+  {
+    "id": "stone-guardian",
+    "name": "Stone Guardian",
+    "system": {
+      "level": 8,
+      "levelType": "Elite",
+      "mr": "12L",
+      "at": "HE",
+      "def": 40,
+      "tsr": 70,
+      "wsr": 50,
+      "hp": {
+        "value": 180,
+        "max": 180
+      },
+      "attacks": {
+        "first": {
+          "bonus": 110,
+          "label": "Large Trample"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Mindless, Unliving, Hardness, Overwhelming, Ageless Sentinel",
+      "ct": "HH",
+      "rog": 0,
+      "adv": 0,
+      "lor": 0,
+      "notes": "Stone Guardians are mystical constructs, carved figures animated by ancient rituals.\nType: Stone Guardian\nCore Rules p326"
+    }
+  },
+  {
+    "id": "tusked-boar",
+    "name": "Tusked Boar",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "40L",
+      "at": "LA",
+      "def": 30,
+      "tsr": 20,
+      "wsr": 5,
+      "hp": {
+        "value": 120,
+        "max": 120
+      },
+      "attacks": {
+        "first": {
+          "bonus": 50,
+          "label": "Large Horns"
+        },
+        "second": {
+          "bonus": 40,
+          "label": "Large Trample"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 0,
+      "adv": 40,
+      "lor": 0,
+      "notes": "Type: Wild Beast\nCore Rules p336"
+    }
+  },
+  {
+    "id": "vargr",
+    "name": "Vargr",
+    "system": {
+      "level": 8,
+      "levelType": "Elite",
+      "mr": "40L",
+      "at": "NA",
+      "def": 55,
+      "tsr": 50,
+      "wsr": 40,
+      "hp": {
+        "value": 150,
+        "max": 150
+      },
+      "attacks": {
+        "first": {
+          "bonus": 100,
+          "label": "Large Bite"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Night Sight, Depends on Variant",
+      "ct": "HB",
+      "rog": 25,
+      "adv": 70,
+      "lor": 0,
+      "notes": "Evil spirits given physical form, Vargr resemble monstrously large dogs or wolves.\nType: Vargr\nCore Rules p334"
+    }
+  },
+  {
+    "id": "wight",
+    "name": "Wight",
+    "system": {
+      "level": 10,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "NA",
+      "def": 50,
+      "tsr": 80,
+      "wsr": 90,
+      "hp": {
+        "value": 100,
+        "max": 100
+      },
+      "attacks": {
+        "first": {
+          "bonus": 105,
+          "label": "Weapon"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Unliving, Darkvision, Sun Sensitivity, Corrupting Presence, Call of the Grave, Unholy Drain, Undying",
+      "ct": "HH",
+      "rog": 40,
+      "adv": 30,
+      "lor": 40,
+      "notes": "Wights are the tortured spirits of great warriors who dared to oppose the Darkmaster but ultimately fell to the forces of Darkness.\nType: Wight\nCore Rules p338"
+    }
+  },
+  {
+    "id": "wild-troll",
+    "name": "Wild Troll",
+    "system": {
+      "level": 6,
+      "levelType": "Elite",
+      "mr": "15L",
+      "at": "LA",
+      "def": 10,
+      "tsr": 75,
+      "wsr": 15,
+      "hp": {
+        "value": 150,
+        "max": 150
+      },
+      "attacks": {
+        "first": {
+          "bonus": 90,
+          "label": "Large Claw"
+        },
+        "second": {
+          "bonus": 80,
+          "label": "Weapon"
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "Night Sight, Hulking Brute, Feral Predator, Sun Cursed",
+      "ct": "HH",
+      "rog": 30,
+      "adv": 40,
+      "lor": 0,
+      "notes": "Huge, brutal warriors with a penchant for violence.\nType: Troll\nCore Rules p328"
+    }
+  },
+  {
+    "id": "wolf",
+    "name": "Wolf",
+    "system": {
+      "level": 3,
+      "levelType": "Common",
+      "mr": "40L",
+      "at": "NA",
+      "def": 30,
+      "tsr": 15,
+      "wsr": 5,
+      "hp": {
+        "value": 110,
+        "max": 110
+      },
+      "attacks": {
+        "first": {
+          "bonus": 70,
+          "label": "Medium Bite"
+        },
+        "second": {
+          "bonus": 0,
+          "label": ""
+        },
+        "third": {
+          "bonus": 0,
+          "label": ""
+        }
+      },
+      "special": "",
+      "ct": "NB",
+      "rog": 30,
+      "adv": 50,
+      "lor": 0,
+      "notes": "Type: Wild Beast\nCore Rules p336"
+    }
+  }
+]

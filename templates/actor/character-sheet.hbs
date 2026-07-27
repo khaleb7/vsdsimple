@@ -189,6 +189,28 @@
                   <div class="cell tot">{{vsdSigned sk.total}}</div>
                 </div>
                 {{/each}}
+                {{#each cat.customSkills as |sk|}}
+                <div class="form-row skill-cols custom-skill">
+                  <div class="cell name custom-skill-name">
+                    <a class="roll-icon" data-action="rollCustomSkill" data-category="{{sk.category}}" data-index="{{sk.index}}" title="Roll">
+                      <i class="fas fa-dice-d20"></i>
+                    </a>
+                    <input class="form-col-input skill-name-input" type="text" name="system.customSkills.{{sk.category}}.{{sk.index}}.name" value="{{sk.name}}" placeholder="Custom skill" />
+                  </div>
+                  <div class="cell">
+                    <input class="form-col-input" type="number" name="system.customSkills.{{sk.category}}.{{sk.index}}.statBonus" value="{{sk.statBonus}}" title="Stat bonus (manual)" />
+                  </div>
+                  <div class="cell ranks-cell">
+                    <input class="form-col-input ranks-input" type="number" name="system.customSkills.{{sk.category}}.{{sk.index}}.ranks" value="{{sk.ranks}}" />
+                    <span class="rank-bonus">[{{sk.rankBonus}}]</span>
+                  </div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.customSkills.{{sk.category}}.{{sk.index}}.voc" value="{{sk.voc}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.customSkills.{{sk.category}}.{{sk.index}}.kin" value="{{sk.kin}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.customSkills.{{sk.category}}.{{sk.index}}.spec" value="{{sk.spec}}" /></div>
+                  <div class="cell"><input class="form-col-input" type="number" name="system.customSkills.{{sk.category}}.{{sk.index}}.item" value="{{sk.item}}" /></div>
+                  <div class="cell tot">{{vsdSigned sk.total}}</div>
+                </div>
+                {{/each}}
                 {{/each}}
               </div>
             </section>
@@ -286,6 +308,7 @@
           <h3 class="form-section-title">Attacks <a data-action="addAttack"><i class="fas fa-plus"></i></a></h3>
           <div class="form-table attacks-table">
             <div class="form-row header">
+              <div class="cell"></div>
               <div class="cell name">Weapon</div>
               <div class="cell">Bonus</div>
               <div class="cell">Size</div>
@@ -295,15 +318,19 @@
             </div>
             {{#each system.attacks as |atk i|}}
             <div class="form-row">
+              <div class="cell roll-cell">
+                <a class="roll-icon" data-action="rollAttack" data-index="{{i}}" title="Roll attack">
+                  <i class="fas fa-dice-d20"></i>
+                </a>
+              </div>
               <div class="cell name">
-                <a class="roll-label" data-action="rollAttack" data-index="{{i}}">{{#if atk.name}}{{atk.name}}{{else}}Attack{{/if}}</a>
-                <input type="text" name="system.attacks.{{i}}.name" value="{{atk.name}}" />
+                <input class="form-col-input attack-name-input" type="text" name="system.attacks.{{i}}.name" value="{{atk.name}}" placeholder="Weapon name" />
               </div>
               <div class="cell"><input class="form-col-input" type="number" name="system.attacks.{{i}}.bonus" value="{{atk.bonus}}" /></div>
-              <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.size" value="{{atk.size}}" /></div>
-              <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.table" value="{{atk.table}}" placeholder="slash" /></div>
+              <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.size" value="{{atk.size}}" placeholder="M" /></div>
+              <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.table" value="{{atk.table}}" placeholder="edged" /></div>
               <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.crit" value="{{atk.crit}}" placeholder="cut" /></div>
-              <div class="cell"><a data-action="deleteAttack" data-index="{{i}}"><i class="fas fa-trash"></i></a></div>
+              <div class="cell"><a data-action="deleteAttack" data-index="{{i}}" title="Remove"><i class="fas fa-trash"></i></a></div>
             </div>
             {{/each}}
           </div>

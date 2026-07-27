@@ -26,6 +26,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     actions: {
       rollStat: CharacterSheet.#onRollStat,
       rollSkill: CharacterSheet.#onRollSkill,
+      rollCustomSkill: CharacterSheet.#onRollCustomSkill,
       rollSave: CharacterSheet.#onRollSave,
       rollDefense: CharacterSheet.#onRollDefense,
       rollAttack: CharacterSheet.#onRollAttack,
@@ -142,6 +143,17 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const sk = actor.system.derived.skills[key];
     if (!sk) return;
     await rollCheck({ actor, label: sk.label, bonus: sk.total });
+  }
+
+  static async #onRollCustomSkill(event, target) {
+    const category = target.dataset.category;
+    const index = Number(target.dataset.index);
+    const actor = this.document;
+    const cat = actor.system.derived.skillCategories.find((c) => c.key === category);
+    const sk = cat?.customSkills?.[index];
+    if (!sk) return;
+    const label = sk.name?.trim() || "Custom Skill";
+    await rollCheck({ actor, label, bonus: sk.total });
   }
 
   static async #onRollSave(event, target) {

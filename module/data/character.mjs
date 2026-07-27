@@ -13,6 +13,33 @@ function columnSchema(extra = {}) {
   });
 }
 
+/** Blank custom skill row: player names it and types the Stat bonus manually. */
+function customSkillSchema() {
+  return new SchemaField({
+    name: new StringField({ required: true, blank: true, initial: "" }),
+    statBonus: new NumberField({ required: true, integer: true, initial: 0 }),
+    ranks: new NumberField({ required: true, integer: true, initial: 0, min: 0 }),
+    voc: new NumberField({ required: true, integer: true, initial: 0 }),
+    kin: new NumberField({ required: true, integer: true, initial: 0 }),
+    spec: new NumberField({ required: true, integer: true, initial: 0 }),
+    item: new NumberField({ required: true, integer: true, initial: 0 })
+  });
+}
+
+function blankCustomSkill() {
+  return { name: "", statBonus: 0, ranks: 0, voc: 0, kin: 0, spec: 0, item: 0 };
+}
+
+function buildCustomSkillsSchema() {
+  const cats = {};
+  for (const cat of SKILL_CATEGORIES) {
+    cats[cat.key] = new ArrayField(customSkillSchema(), {
+      initial: [blankCustomSkill(), blankCustomSkill()]
+    });
+  }
+  return cats;
+}
+
 function buildSkillSchema() {
   const skills = {};
   for (const cat of SKILL_CATEGORIES) {
@@ -76,6 +103,7 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
       }),
 
       skills: new SchemaField(buildSkillSchema()),
+      customSkills: new SchemaField(buildCustomSkillsSchema()),
       spellLores: new SchemaField(buildSpellSchema()),
 
       pools: new SchemaField({
@@ -184,10 +212,34 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
       }
     }
     this.derived.skills = skills;
-    this.derived.skillCategories = SKILL_CATEGORIES.map((cat) => ({
-      ...cat,
-      skills: cat.skills.map((s) => skills[s.key])
-    }));
+
+    this.derived.skillCategories = SKILL_CATEGORIES.map((cat) => {
+      const customs = [...(this.customSkills?.[cat.key] ?? [])];
+      while (customs.length < 2) customs.push(blankCustomSkill());
+      const customSkills = customs.slice(0, 2).map((sk, index) => {
+        const rb = rankBonus(sk.ranks);
+        const statTotal = Number(sk.statBonus) || 0;
+        return {
+          ...sk,
+          index,
+          category: cat.key,
+          rankBonus: rb,
+          statTotal,
+          total:
+            statTotal +
+            rb +
+            (Number(sk.voc) || 0) +
+            (Number(sk.kin) || 0) +
+            (Number(sk.spec) || 0) +
+            (Number(sk.item) || 0)
+        };
+      });
+      return {
+        ...cat,
+        skills: cat.skills.map((s) => skills[s.key]),
+        customSkills
+      };
+    });
 
     const spellLores = {};
     for (const def of SPELL_LORES) {

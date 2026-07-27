@@ -2,7 +2,7 @@
   "id": "vsdsimple",
   "title": "Against the Darkmaster (Simple)",
   "description": "A simplified Against the Darkmaster Foundry system: form-fillable sheets, click-to-roll, critical tables, and manual token conditions. No combat automation.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "compatibility": {
     "minimum": "13",
     "verified": "14"

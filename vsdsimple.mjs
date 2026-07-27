@@ -6,6 +6,7 @@ import { registerOpenEndedDie } from "./module/dice/open-ended.mjs";
 import { CriticalBrowser, openCriticalTableById } from "./module/apps/critical-browser.mjs";
 import { SYSTEM_ID, getStatusEffects } from "./module/config.mjs";
 import { registerHandlebarsHelpers } from "./module/helpers.mjs";
+import { registerBestiary, maybeAutoImportBestiary } from "./module/bestiary.mjs";
 
 Hooks.once("init", () => {
   console.log(`${SYSTEM_ID} | Initializing Against the Darkmaster (Simple)`);
@@ -19,6 +20,7 @@ Hooks.once("init", () => {
 
   registerOpenEndedDie();
   registerHandlebarsHelpers();
+  registerBestiary();
 
   foundry.documents.collections.Actors.registerSheet(SYSTEM_ID, CharacterSheet, {
     types: ["character"],
@@ -44,8 +46,9 @@ Hooks.once("init", () => {
   });
 });
 
-Hooks.once("ready", () => {
+Hooks.once("ready", async () => {
   console.log(`${SYSTEM_ID} | Ready`);
+  await maybeAutoImportBestiary();
 });
 
 Hooks.on("getSceneControlButtons", (controls) => {

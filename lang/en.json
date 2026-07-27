@@ -63,6 +63,18 @@
       "prone": "Prone",
       "flying": "Flying",
       "swimming": "Swimming"
+    },
+    "Bestiary": {
+      "autoImport": "Auto-import starter bestiary",
+      "autoImportHint": "When enabled, creates NPC actors from the bundled bestiary the first time this world is opened by a GM.",
+      "importMenu": "Import Bestiary",
+      "importButton": "Import Monsters",
+      "importHint": "Create (or refresh) NPC actors from the bundled Against the Darkmaster bestiary into an Actor folder named VsD Bestiary.",
+      "forceUpdate": "Update existing monsters with the same name",
+      "gmOnly": "Only a GM can import the bestiary.",
+      "alreadyImported": "Bestiary already imported for this world.",
+      "loadFailed": "Could not load bestiary data.",
+      "importResult": "Bestiary import: {created} created, {updated} updated, {skipped} skipped."
     }
   }
 }

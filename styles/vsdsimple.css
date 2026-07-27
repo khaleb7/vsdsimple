@@ -284,11 +284,55 @@
 .skill-cols {
   grid-template-columns: 1.8fr repeat(6, 0.7fr) 0.75fr;
 }
+.skills-table .custom-skill-name {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  overflow: visible;
+  white-space: normal;
+}
+.skills-table .skill-name-input {
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+}
+.skills-table .custom-skill .roll-icon {
+  color: #1a1a1a;
+  cursor: pointer;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+.skills-table .custom-skill .roll-icon:hover {
+  color: #6b3a1f;
+}
+.skills-table .custom-skill {
+  background: #faf8f3;
+}
 .spell-cols {
   grid-template-columns: 1.8fr repeat(5, 0.7fr) 0.75fr;
 }
 .attacks-table .form-row {
-  grid-template-columns: 2fr 0.7fr 0.7fr 0.9fr 0.9fr 0.4fr;
+  grid-template-columns: 1.6rem 2fr 0.7fr 0.7fr 0.9fr 0.9fr 0.4fr;
+}
+.attacks-table .cell.name {
+  overflow: visible;
+  white-space: normal;
+}
+.attacks-table .attack-name-input {
+  text-align: left;
+  padding: 0 0.25rem;
+  min-width: 0;
+}
+.attacks-table .roll-cell {
+  text-align: center;
+}
+.attacks-table .roll-icon {
+  color: #1a1a1a;
+  cursor: pointer;
+  text-decoration: none;
+}
+.attacks-table .roll-icon:hover {
+  color: #6b3a1f;
 }
 
 .form-col-input {

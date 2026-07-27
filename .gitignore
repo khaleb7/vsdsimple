@@ -9,4 +9,5 @@ Thumbs.db
 
 # Foundry / Node
 node_modules/
+dist/
 *.lock
