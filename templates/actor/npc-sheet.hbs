@@ -119,6 +119,12 @@
                 <input class="boxed" type="number" name="system.hp.max" value="{{system.hp.max}}" />
               </label>
             </div>
+            <div class="pool-quick-btns">
+              <button type="button" data-action="adjustHp" data-field="value" data-delta="-5">−5</button>
+              <button type="button" data-action="adjustHp" data-field="value" data-delta="-1">−1</button>
+              <button type="button" data-action="adjustHp" data-field="value" data-delta="1">+1</button>
+              <button type="button" data-action="adjustHp" data-field="value" data-delta="5">+5</button>
+            </div>
           </div>
           <div class="wounds-block">
             <h3 class="form-section-title">Wounds</h3>
@@ -152,6 +158,7 @@
             <span>Pen</span>
             <span>Notes</span>
             <span></span>
+            <span></span>
           </div>
           {{/if}}
           {{#each system.wounds as |w i|}}
@@ -160,6 +167,7 @@
             <input type="number" name="system.wounds.{{i}}.bleed" value="{{w.bleed}}" title="Bleed" placeholder="0" />
             <input type="number" name="system.wounds.{{i}}.penalty" value="{{w.penalty}}" title="Penalty" placeholder="0" />
             <input type="text" name="system.wounds.{{i}}.notes" value="{{w.notes}}" placeholder="Notes" />
+            <a data-action="duplicateWound" data-index="{{i}}" title="Duplicate"><i class="fas fa-copy"></i></a>
             <a data-action="deleteWound" data-index="{{i}}" title="Remove"><i class="fas fa-trash"></i></a>
           </div>
           {{/each}}

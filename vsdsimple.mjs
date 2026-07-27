@@ -9,6 +9,9 @@ import { registerHandlebarsHelpers } from "./module/helpers.mjs";
 import { registerBestiary, maybeAutoImportBestiary } from "./module/bestiary.mjs";
 import { registerMerpBestiary, maybeAutoImportMerpBestiary } from "./module/merp-bestiary.mjs";
 import { remindWoundsOnTurn, injectWoundBadge } from "./module/wounds.mjs";
+import { registerSheetAudit } from "./module/audit.mjs";
+import { registerCombatPhases } from "./module/combat-phases.mjs";
+import { registerQol, injectHpQuickAdjust } from "./module/qol.mjs";
 
 Hooks.once("init", () => {
   console.log(`${SYSTEM_ID} | Initializing Against the Darkmaster (Simple)`);
@@ -24,6 +27,9 @@ Hooks.once("init", () => {
   registerHandlebarsHelpers();
   registerBestiary();
   registerMerpBestiary();
+  registerSheetAudit();
+  registerCombatPhases();
+  registerQol();
 
   foundry.documents.collections.Actors.registerSheet(SYSTEM_ID, CharacterSheet, {
     types: ["character"],
@@ -109,6 +115,7 @@ Hooks.on("combatTurnChange", (combat) => {
 
 Hooks.on("renderTokenHUD", (hud, html) => {
   injectWoundBadge(hud, html);
+  injectHpQuickAdjust(hud, html);
 });
 
 /**

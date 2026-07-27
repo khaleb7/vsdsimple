@@ -1,6 +1,7 @@
-import { SYSTEM_ID, SPELL_LORES } from "../config.mjs";
+import { SYSTEM_ID, SPELL_LORES, COMBAT_PHASES } from "../config.mjs";
 import { rollCheck } from "../rolls.mjs";
 import { CriticalBrowser } from "../apps/critical-browser.mjs";
+import { fastRollFromEvent, onExportSnapshot } from "../qol.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -16,6 +17,11 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     window: {
       resizable: true,
       controls: [
+        {
+          icon: "fas fa-clipboard",
+          label: "VSDSIMPLE.Export.snapshot",
+          action: "exportSnapshot"
+        },
         {
           icon: "fas fa-book-dead",
           label: "VSDSIMPLE.Crit.browser",
@@ -33,11 +39,17 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollSpell: CharacterSheet.#onRollSpell,
       rollKnownSpell: CharacterSheet.#onRollKnownSpell,
       addAttack: CharacterSheet.#onAddAttack,
+      duplicateAttack: CharacterSheet.#onDuplicateAttack,
       deleteAttack: CharacterSheet.#onDeleteAttack,
       addWound: CharacterSheet.#onAddWound,
+      duplicateWound: CharacterSheet.#onDuplicateWound,
       deleteWound: CharacterSheet.#onDeleteWound,
       addSpell: CharacterSheet.#onAddSpell,
+      duplicateSpell: CharacterSheet.#onDuplicateSpell,
       deleteSpell: CharacterSheet.#onDeleteSpell,
+      adjustPool: CharacterSheet.#onAdjustPool,
+      toggleCombatPhase: CharacterSheet.#onToggleCombatPhase,
+      exportSnapshot: CharacterSheet.#onExportSnapshot,
       addTrait: CharacterSheet.#onAddTrait,
       deleteTrait: CharacterSheet.#onDeleteTrait,
       setDrive: CharacterSheet.#onSetDrive,
@@ -87,6 +99,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         selected: sp.lore === opt.key
       }))
     }));
+    const activePhases = new Set(system.combatPhases ?? []);
+    context.combatPhases = COMBAT_PHASES.map((p) => ({
+      ...p,
+      active: activePhases.has(p.key)
+    }));
+    context.combatPhasesEnabled = game.settings.get(SYSTEM_ID, "combatPhasesEnabled");
 
     // Flatten tabs for template (support both nested and flat AppV2 shapes)
     let tabMap = context.tabs ?? {};
@@ -188,7 +206,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const actor = this.document;
     const st = actor.system.derived.stats[key];
     if (!st) return;
-    await rollCheck({ actor, label: st.label, bonus: st.total });
+    await rollCheck({ actor, label: st.label, bonus: st.total, skipModPrompt: fastRollFromEvent(event) });
   }
 
   static async #onRollSkill(event, target) {
@@ -196,7 +214,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const actor = this.document;
     const sk = actor.system.derived.skills[key];
     if (!sk) return;
-    await rollCheck({ actor, label: sk.label, bonus: sk.total });
+    await rollCheck({ actor, label: sk.label, bonus: sk.total, skipModPrompt: fastRollFromEvent(event) });
   }
 
   static async #onRollCustomSkill(event, target) {
@@ -207,7 +225,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const sk = cat?.customSkills?.[index];
     if (!sk) return;
     const label = sk.name?.trim() || "Custom Skill";
-    await rollCheck({ actor, label, bonus: sk.total });
+    await rollCheck({ actor, label, bonus: sk.total, skipModPrompt: fastRollFromEvent(event) });
   }
 
   static async #onRollSave(event, target) {
@@ -216,7 +234,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const sv = actor.system.derived.saves[key];
     if (!sv) return;
     const label = key === "tsr" ? "Toughness SR" : "Willpower SR";
-    await rollCheck({ actor, label, bonus: sv.total });
+    await rollCheck({ actor, label, bonus: sv.total, skipModPrompt: fastRollFromEvent(event) });
   }
 
   static async #onRollDefense(event, target) {
@@ -224,7 +242,7 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const actor = this.document;
     const bonus = Number(actor.system.defense[which]) || 0;
     const label = which === "meleeDB" ? "Melee DB" : "Missile DB";
-    await rollCheck({ actor, label, bonus });
+    await rollCheck({ actor, label, bonus, skipModPrompt: fastRollFromEvent(event) });
   }
 
   static async #onRollAttack(event, target) {
@@ -236,7 +254,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       label: atk.name || "Attack",
       bonus: atk.bonus,
       table: atk.table || null,
-      crit: atk.crit || null
+      crit: atk.crit || null,
+      skipModPrompt: fastRollFromEvent(event)
     });
   }
 
@@ -244,7 +263,12 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const key = target.dataset.key;
     const lore = this.document.system.derived.spellLores[key];
     if (!lore) return;
-    await rollCheck({ actor: this.document, label: lore.label, bonus: lore.total });
+    await rollCheck({
+      actor: this.document,
+      label: lore.label,
+      bonus: lore.total,
+      skipModPrompt: fastRollFromEvent(event)
+    });
   }
 
   static async #onRollKnownSpell(event, target) {
@@ -256,7 +280,8 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await rollCheck({
       actor: this.document,
       label,
-      bonus: lore?.total ?? 0
+      bonus: lore?.total ?? 0,
+      skipModPrompt: fastRollFromEvent(event)
     });
   }
 
@@ -274,6 +299,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await this.#updateArrayField("system.attacks", attacks);
   }
 
+  static async #onDuplicateAttack(event, target) {
+    event?.preventDefault?.();
+    const index = Number(target.dataset.index);
+    const attacks = foundry.utils.deepClone(this.document.system.attacks);
+    const row = attacks[index];
+    if (!row) return;
+    attacks.splice(index + 1, 0, foundry.utils.deepClone(row));
+    await this.#updateArrayField("system.attacks", attacks);
+  }
+
   static async #onAddWound() {
     const wounds = foundry.utils.deepClone(this.document.system.wounds);
     wounds.push({ name: "", bleed: 0, penalty: 0, notes: "" });
@@ -285,6 +320,16 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const index = Number(target.dataset.index);
     const wounds = foundry.utils.deepClone(this.document.system.wounds);
     wounds.splice(index, 1);
+    await this.#updateArrayField("system.wounds", wounds);
+  }
+
+  static async #onDuplicateWound(event, target) {
+    event?.preventDefault?.();
+    const index = Number(target.dataset.index);
+    const wounds = foundry.utils.deepClone(this.document.system.wounds);
+    const row = wounds[index];
+    if (!row) return;
+    wounds.splice(index + 1, 0, foundry.utils.deepClone(row));
     await this.#updateArrayField("system.wounds", wounds);
   }
 
@@ -300,6 +345,47 @@ export class CharacterSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const spells = foundry.utils.deepClone(this.document.system.spells ?? []);
     spells.splice(index, 1);
     await this.#updateArrayField("system.spells", spells);
+  }
+
+  static async #onDuplicateSpell(event, target) {
+    event?.preventDefault?.();
+    const index = Number(target.dataset.index);
+    const spells = foundry.utils.deepClone(this.document.system.spells ?? []);
+    const row = spells[index];
+    if (!row) return;
+    spells.splice(index + 1, 0, foundry.utils.deepClone(row));
+    await this.#updateArrayField("system.spells", spells);
+  }
+
+  static async #onAdjustPool(event, target) {
+    event?.preventDefault?.();
+    const pool = target.dataset.pool;
+    const field = target.dataset.field ?? "value";
+    const delta = Number(target.dataset.delta);
+    const path = `system.pools.${pool}.${field}`;
+    const current = Number(foundry.utils.getProperty(this.document.system, `pools.${pool}.${field}`)) || 0;
+    let next = current + delta;
+    if (field === "value") {
+      const max = Number(this.document.system.pools[pool]?.max) || 0;
+      next = Math.min(Math.max(0, next), max);
+    } else {
+      next = Math.max(0, next);
+    }
+    await this.document.update({ [path]: next });
+  }
+
+  static async #onToggleCombatPhase(event, target) {
+    event?.preventDefault?.();
+    const key = target.dataset.phase;
+    const phases = [...(this.document.system.combatPhases ?? [])];
+    const idx = phases.indexOf(key);
+    if (idx >= 0) phases.splice(idx, 1);
+    else phases.push(key);
+    await this.document.update({ "system.combatPhases": phases });
+  }
+
+  static async #onExportSnapshot() {
+    await onExportSnapshot(this);
   }
 
   static async #onAddTrait() {

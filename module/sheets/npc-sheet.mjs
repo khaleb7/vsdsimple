@@ -1,6 +1,7 @@
 import { SYSTEM_ID, NPC_ATTACK_TYPES } from "../config.mjs";
 import { rollCheck } from "../rolls.mjs";
 import { CriticalBrowser } from "../apps/critical-browser.mjs";
+import { fastRollFromEvent, onExportSnapshot } from "../qol.mjs";
 
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
@@ -17,6 +18,11 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       resizable: true,
       controls: [
         {
+          icon: "fas fa-clipboard",
+          label: "VSDSIMPLE.Export.snapshot",
+          action: "exportSnapshot"
+        },
+        {
           icon: "fas fa-book-dead",
           label: "VSDSIMPLE.Crit.browser",
           action: "openCrits"
@@ -28,7 +34,10 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollAttack: NpcSheet.#onRollAttack,
       openCrits: NpcSheet.#onOpenCrits,
       addWound: NpcSheet.#onAddWound,
+      duplicateWound: NpcSheet.#onDuplicateWound,
       deleteWound: NpcSheet.#onDeleteWound,
+      adjustHp: NpcSheet.#onAdjustHp,
+      exportSnapshot: NpcSheet.#onExportSnapshot,
       toggleStatus: NpcSheet.#onToggleStatus
     },
     form: {
@@ -164,7 +173,7 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       adv: "Adventuring",
       lor: "Lore"
     };
-    await rollCheck({ actor, label: labels[field] ?? field, bonus });
+    await rollCheck({ actor, label: labels[field] ?? field, bonus, skipModPrompt: fastRollFromEvent(event) });
   }
 
   static async #onRollAttack(event, target) {
@@ -178,7 +187,8 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       label: `${atk.label || "Attack"}${typeBit}`,
       bonus: atk.bonus,
       table: atk.table || null,
-      crit: atk.crit || null
+      crit: atk.crit || null,
+      skipModPrompt: fastRollFromEvent(event)
     });
   }
 
@@ -194,6 +204,36 @@ export class NpcSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const wounds = foundry.utils.deepClone(this.document.system.wounds ?? []);
     wounds.splice(index, 1);
     await this.#updateArrayField("system.wounds", wounds);
+  }
+
+  static async #onDuplicateWound(event, target) {
+    event?.preventDefault?.();
+    const index = Number(target.dataset.index);
+    const wounds = foundry.utils.deepClone(this.document.system.wounds ?? []);
+    const row = wounds[index];
+    if (!row) return;
+    wounds.splice(index + 1, 0, foundry.utils.deepClone(row));
+    await this.#updateArrayField("system.wounds", wounds);
+  }
+
+  static async #onAdjustHp(event, target) {
+    event?.preventDefault?.();
+    const field = target.dataset.field ?? "value";
+    const delta = Number(target.dataset.delta);
+    const path = `system.hp.${field}`;
+    const current = Number(foundry.utils.getProperty(this.document.system, `hp.${field}`)) || 0;
+    let next = current + delta;
+    if (field === "value") {
+      const max = Number(this.document.system.hp?.max) || 0;
+      next = Math.min(Math.max(0, next), max);
+    } else {
+      next = Math.max(0, next);
+    }
+    await this.document.update({ [path]: next });
+  }
+
+  static async #onExportSnapshot() {
+    await onExportSnapshot(this);
   }
 
   static async #onToggleStatus(event, target) {

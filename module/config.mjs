@@ -67,6 +67,21 @@ export const SKILL_CATEGORIES = [
   }
 ];
 
+/** Coarse combat phase buckets for round planning (not initiative automation). */
+export const COMBAT_PHASES = [
+  { key: "move", label: "Move", sort: 60 },
+  { key: "spell", label: "Spell", sort: 50 },
+  { key: "ranged", label: "Ranged", sort: 40 },
+  { key: "melee", label: "Melee", sort: 30 },
+  { key: "other", label: "Other", sort: 10 },
+  { key: "wait", label: "Wait", sort: 0 }
+];
+
+/** @param {string} key */
+export function getCombatPhase(key) {
+  return COMBAT_PHASES.find((p) => p.key === key) ?? null;
+}
+
 export const SPELL_LORES = [
   { key: "eldritch_fire", label: "Eldritch Fire" },
   { key: "eldritch_frost", label: "Eldritch Frost" },

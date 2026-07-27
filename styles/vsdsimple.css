@@ -483,7 +483,7 @@
 }
 .injury-line {
   display: grid;
-  grid-template-columns: 1.2fr 0.5fr 0.5fr 1.2fr auto;
+  grid-template-columns: 1.2fr 0.5fr 0.5fr 1.2fr auto auto;
   gap: 0.25rem;
   margin-bottom: 0.2rem;
   align-items: center;
@@ -895,6 +895,131 @@
   border-radius: 2px;
   padding: 1px 6px;
   pointer-events: none;
+}
+
+.vsdsimple-hp-hud {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 110;
+  display: flex;
+  gap: 2px;
+  pointer-events: auto;
+}
+.vsdsimple-hp-hud .vsdsimple-hp-btn {
+  font-size: 9px;
+  font-family: Ubuntu, sans-serif;
+  line-height: 1;
+  padding: 2px 4px;
+  border: 1px solid #6b3a1f;
+  background: rgba(250, 248, 243, 0.95);
+  color: #1a1a1a;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.vsdsimple-hp-hud .vsdsimple-hp-btn:hover {
+  background: #ebe7de;
+}
+
+.sheet-hint {
+  font-size: 11px;
+  color: #666;
+  font-style: italic;
+  margin: 0.25rem 0 0;
+}
+
+.pool-quick-btns {
+  display: flex;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+  flex-wrap: wrap;
+}
+.pool-quick-btns button {
+  font-size: 11px;
+  font-family: Ubuntu, sans-serif;
+  padding: 0.1rem 0.45rem;
+  border: 1px solid #8a8578;
+  background: #faf8f3;
+  color: #1a1a1a;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.pool-quick-btns button:hover {
+  background: #ebe7de;
+  border-color: #6b3a1f;
+}
+
+.combat-phase-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+.combat-phase-chip {
+  font-size: 12px;
+  font-family: Ubuntu, sans-serif;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid #8a8578;
+  background: #faf8f3;
+  color: #1a1a1a;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.combat-phase-chip.active {
+  background: #6b3a1f;
+  border-color: #6b3a1f;
+  color: #f3ead8;
+}
+.combat-phases-section {
+  margin-bottom: 0.75rem;
+}
+
+.row-actions {
+  display: flex;
+  gap: 0.35rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.vsdsimple-phase-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-top: 0.15rem;
+}
+.vsdsimple-phase-badges.empty {
+  display: none;
+}
+.vsdsimple-phase-chip {
+  font-size: 10px;
+  font-family: Ubuntu, sans-serif;
+  padding: 0 0.35rem;
+  border-radius: 2px;
+  background: #6b3a1f;
+  color: #f3ead8;
+  line-height: 1.4;
+}
+.vsdsimple-phase-sort {
+  font-size: 11px;
+  font-family: Ubuntu, sans-serif;
+  margin: 0.25rem 0;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid #8a8578;
+  background: #faf8f3;
+  cursor: pointer;
+  width: 100%;
+}
+.vsdsimple-phase-sort:hover {
+  background: #ebe7de;
+}
+
+.vsdsimple-condition-chat {
+  font-family: Ubuntu, sans-serif;
+  font-size: 13px;
+}
+
+.vsdsimple-sheet-audit {
+  font-family: Ubuntu, sans-serif;
+  font-size: 13px;
 }
 
 .npc-stat-block .inline-hint {

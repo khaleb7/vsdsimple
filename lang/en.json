@@ -37,6 +37,13 @@
     },
     "Conditions": {
       "bruised": "Bruised",
+      "chatToggle": "Condition toggle chat",
+      "chatToggleHint": "Post a chat message when token conditions are added or removed.",
+      "chatOff": "Off",
+      "chatPublic": "Public",
+      "chatGm": "Whisper GM",
+      "chatAdded": "gained {conditions}",
+      "chatRemoved": "lost {conditions}",
       "weary": "Weary",
       "incapacitated": "Incapacitated",
       "dying": "Dying",
@@ -71,6 +78,40 @@
       "prone": "Prone",
       "flying": "Flying",
       "swimming": "Swimming"
+    },
+    "Audit": {
+      "sheetWhisper": "Whisper sheet stat/skill changes to GM",
+      "sheetWhisperHint": "When enabled, non-GM edits to PC stats, saves, skills, custom skills, and spell lores send a private chat message to all GMs.",
+      "driveHeroWhisper": "Whisper Drive/Hero changes to GM",
+      "driveHeroWhisperHint": "When enabled, non-GM changes to Drive or Hero points send a private chat message to all GMs."
+    },
+    "Export": {
+      "snapshot": "Copy stat block",
+      "copied": "Copied {name} to clipboard."
+    },
+    "Phases": {
+      "enabled": "Combat phase planning",
+      "enabledHint": "Let PCs toggle planned action phases on the Combat tab; badges appear on the combat tracker.",
+      "visibility": "Phase badge visibility",
+      "visibilityHint": "Who can see phase badges on the combat tracker.",
+      "visAll": "Everyone",
+      "visSelf": "Owner + GM",
+      "visGm": "GM only",
+      "clearOnRound": "Clear phases on new round",
+      "clearOnRoundHint": "When a new combat round starts, clear all PC phase toggles (GM only).",
+      "sort": "Sort by phase",
+      "sortHint": "Set initiative from declared phases (higher phase acts first). Suggestion only.",
+      "sorted": "Combatants sorted by declared phase.",
+      "gmOnly": "Only a GM can sort combat by phase."
+    },
+    "Combat": {
+      "woundReminderPlayers": "Wound reminder to players",
+      "woundReminderPlayersHint": "When a combatant's turn starts, also whisper bleed/penalty totals to that actor's owners.",
+      "defeatedNudgeSetting": "Defeated nudge at 0 HP",
+      "defeatedNudgeHint": "Show a notification when HP drops to 0 (does not apply Defeated automatically).",
+      "defeatedNudge": "{name} is at 0 HP — mark Defeated?",
+      "tokenHpHud": "Token HUD HP quick adjust",
+      "tokenHpHudHint": "Show GM-only −5/−1/+1/+5 buttons on the token HUD for HP."
     },
     "Bestiary": {
       "autoImport": "Auto-import starter bestiary",

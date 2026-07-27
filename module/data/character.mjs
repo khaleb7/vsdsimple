@@ -159,6 +159,9 @@ export class CharacterDataModel extends foundry.abstract.TypeDataModel {
         { initial: [] }
       ),
 
+      /** Coarse combat phase planning toggles (Move, Spell, etc.). */
+      combatPhases: new ArrayField(new StringField({ blank: true }), { initial: [] }),
+
       passions: new ArrayField(new StringField({ blank: true }), { initial: ["", "", ""] }),
       traits: new ArrayField(new StringField({ blank: true }), { initial: [] }),
       biography: new StringField({ required: true, blank: true, initial: "" }),

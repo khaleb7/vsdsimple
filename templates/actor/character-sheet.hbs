@@ -43,6 +43,7 @@
         <a class="tabtitle{{#if cssClass}} {{cssClass}}{{/if}}" data-action="tab" data-group="primary" data-tab="{{id}}">{{localize label}}</a>
         {{/each}}
       </nav>
+      <p class="sheet-hint">Shift+click any roll label to skip the situational modifier prompt.</p>
     </header>
 
     <section class="sheet-body">
@@ -230,6 +231,12 @@
                 <input class="boxed" type="number" name="system.pools.hp.value" value="{{system.pools.hp.value}}" />
               </label>
             </div>
+            <div class="pool-quick-btns">
+              <button type="button" data-action="adjustPool" data-pool="hp" data-field="value" data-delta="-5">−5</button>
+              <button type="button" data-action="adjustPool" data-pool="hp" data-field="value" data-delta="-1">−1</button>
+              <button type="button" data-action="adjustPool" data-pool="hp" data-field="value" data-delta="1">+1</button>
+              <button type="button" data-action="adjustPool" data-pool="hp" data-field="value" data-delta="5">+5</button>
+            </div>
           </div>
           <div class="wounds-block">
             <h3 class="form-section-title">Wounds</h3>
@@ -250,8 +257,26 @@
                 <input class="boxed" type="number" name="system.pools.mp.value" value="{{system.pools.mp.value}}" />
               </label>
             </div>
+            <div class="pool-quick-btns">
+              <button type="button" data-action="adjustPool" data-pool="mp" data-field="value" data-delta="-5">−5</button>
+              <button type="button" data-action="adjustPool" data-pool="mp" data-field="value" data-delta="-1">−1</button>
+              <button type="button" data-action="adjustPool" data-pool="mp" data-field="value" data-delta="1">+1</button>
+              <button type="button" data-action="adjustPool" data-pool="mp" data-field="value" data-delta="5">+5</button>
+            </div>
           </div>
         </div>
+
+        {{#if combatPhasesEnabled}}
+        <section class="form-section combat-phases-section">
+          <h3 class="form-section-title">Planned Phases</h3>
+          <p class="hint">Toggle phases you plan to act in this round. Visible per world settings on the combat tracker.</p>
+          <div class="combat-phase-chips">
+            {{#each combatPhases as |ph|}}
+            <button type="button" class="combat-phase-chip{{#if ph.active}} active{{/if}}" data-action="toggleCombatPhase" data-phase="{{ph.key}}">{{ph.label}}</button>
+            {{/each}}
+          </div>
+        </section>
+        {{/if}}
 
         <div class="form-two-col conditions-defense">
           <section class="form-section">
@@ -275,6 +300,7 @@
                 <span>Pen</span>
                 <span>Notes</span>
                 <span></span>
+                <span></span>
               </div>
               {{/if}}
               {{#each system.wounds as |w i|}}
@@ -283,6 +309,7 @@
                 <input type="number" name="system.wounds.{{i}}.bleed" value="{{w.bleed}}" title="Bleed" placeholder="0" />
                 <input type="number" name="system.wounds.{{i}}.penalty" value="{{w.penalty}}" title="Penalty" placeholder="0" />
                 <input type="text" name="system.wounds.{{i}}.notes" value="{{w.notes}}" placeholder="Notes" />
+                <a data-action="duplicateWound" data-index="{{i}}" title="Duplicate"><i class="fas fa-copy"></i></a>
                 <a data-action="deleteWound" data-index="{{i}}" title="Remove"><i class="fas fa-trash"></i></a>
               </div>
               {{/each}}
@@ -338,7 +365,10 @@
               <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.size" value="{{atk.size}}" placeholder="M" /></div>
               <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.table" value="{{atk.table}}" placeholder="edged" /></div>
               <div class="cell"><input class="form-col-input" type="text" name="system.attacks.{{i}}.crit" value="{{atk.crit}}" placeholder="cut" /></div>
-              <div class="cell"><a data-action="deleteAttack" data-index="{{i}}" title="Remove"><i class="fas fa-trash"></i></a></div>
+              <div class="cell row-actions">
+                <a data-action="duplicateAttack" data-index="{{i}}" title="Duplicate"><i class="fas fa-copy"></i></a>
+                <a data-action="deleteAttack" data-index="{{i}}" title="Remove"><i class="fas fa-trash"></i></a>
+              </div>
             </div>
             {{/each}}
           </div>
@@ -411,7 +441,10 @@
               <div class="cell"><input class="form-col-input" type="number" name="system.spells.{{sp.index}}.level" value="{{sp.level}}" min="0" /></div>
               <div class="cell"><input class="form-col-input" type="number" name="system.spells.{{sp.index}}.mp" value="{{sp.mp}}" min="0" /></div>
               <div class="cell"><input class="form-col-input attack-name-input" type="text" name="system.spells.{{sp.index}}.notes" value="{{sp.notes}}" placeholder="Range, weave…" /></div>
-              <div class="cell"><a data-action="deleteSpell" data-index="{{sp.index}}" title="Remove"><i class="fas fa-trash"></i></a></div>
+              <div class="cell row-actions">
+                <a data-action="duplicateSpell" data-index="{{sp.index}}" title="Duplicate"><i class="fas fa-copy"></i></a>
+                <a data-action="deleteSpell" data-index="{{sp.index}}" title="Remove"><i class="fas fa-trash"></i></a>
+              </div>
             </div>
             {{/each}}
           </div>

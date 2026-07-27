@@ -30,16 +30,34 @@ export async function remindWoundsOnTurn(combatant) {
   if (bleed) bits.push(`${bleed} bleed`);
   if (penalty) bits.push(`−${Math.abs(penalty)} penalty`);
 
-  const gmIds = game.users.filter((u) => u.isGM).map((u) => u.id);
-  await ChatMessage.create({
-    speaker: ChatMessage.getSpeaker({ actor }),
-    content: `<div class="vsdsimple-wound-nudge">
+  const content = `<div class="vsdsimple-wound-nudge">
       <strong>${foundry.utils.escapeHTML(actor.name)}</strong> —
       ${foundry.utils.escapeHTML(bits.join(" · "))}
       <span class="hint">(manual — not applied)</span>
-    </div>`,
-    whisper: gmIds.length ? gmIds : undefined,
-    flags: { [SYSTEM_ID]: { woundNudge: true } }
+    </div>`;
+
+  const gmIds = game.users.filter((u) => u.isGM).map((u) => u.id);
+  if (gmIds.length) {
+    await ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content,
+      whisper: gmIds,
+      flags: { [SYSTEM_ID]: { woundNudge: true } }
+    });
+  }
+
+  if (!game.settings.get(SYSTEM_ID, "woundReminderPlayers")) return;
+
+  const ownerIds = game.users
+    .filter((u) => !u.isGM && actor.testUserPermission(u, "OWNER"))
+    .map((u) => u.id);
+  if (!ownerIds.length) return;
+
+  await ChatMessage.create({
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content,
+    whisper: ownerIds,
+    flags: { [SYSTEM_ID]: { woundNudge: true, playerNudge: true } }
   });
 }
 
